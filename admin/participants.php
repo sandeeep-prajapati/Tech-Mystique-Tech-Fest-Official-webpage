@@ -27,7 +27,7 @@ else{
         </script>
 
     <?php
-    include_once('./templates/sidebar.php');
+    include_once('../templates/sidebar.php');
     function eventName($eid)
     {
         if ($eid == 10)
@@ -133,7 +133,7 @@ else{
     </body>
 
     <?php
-    include_once('./templates/footer.php');
+    include_once('../templates/footer.php');
     ?>
 
 </html>

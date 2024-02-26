@@ -50,8 +50,7 @@ if (!isset($_SESSION['admin'])) {
     <br><br>
     <table class="table container" style="margin-top: 75px; margin-left: 20px; padding-right: 20px">
         <div class="row" style="margin-top: 75px; margin-bottom: 20px; margin-left: 20px;">
-            <a href="../components/user/add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Add
-                    New</button></a>
+            
         </div>
         <thead>
             <tr>
@@ -59,36 +58,29 @@ if (!isset($_SESSION['admin'])) {
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone No</th>
-                <th scope="col">year</th>
-                <th scope="col">department</th>
+                <th scope="col">suggestions</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $query1 = "select * from users";
+            $query1 = "select * from suggestions";
             $exe1 = mysqli_query($dbc, $query1);
             while ($row1 = mysqli_fetch_array($exe1)) {
-                $p_id = $row1['uid'];
+                $p_id = $row1['id'];
                 $name = $row1['name'];
                 $email = $row1['email'];
-                $phone = $row1['phone'];
-                $year = $row1['year'];
-                $dept = $row1['dept'];
+                $phone = $row1['mobilNo'];
+                $suggestions = $row1['suggestions'];
                 echo "
                                 <tr>
                                     <td>" . $p_id . "</td>
                                     <td>" . $name . "</td>
                                     <td>" . $email . "</td>
                                     <td>" . $phone . "</td>
-                                    <td>" . $year . "</td>
-                                    <td>" . $dept . "</td>
+                                    <td>" . $suggestions . "</td>
                                     <td>
-						                <a href='../components/user/update.php?id=$p_id'>
-                                            <button type='button' class='btn btn-info'>Edit</button>
-                                        </a>
-
-                                        <a href='../components/user/delete.php?id=$p_id'>
+                                        <a href='../components/suggestions/delete.php?id=$p_id'>
                                             <button type='button' class='btn btn-danger btn-xs'>Delete</button>
                                         </a>
                                     </td>

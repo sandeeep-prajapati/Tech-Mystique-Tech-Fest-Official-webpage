@@ -1,0 +1,3 @@
+password : wEJuKJE@G6z?
+db-name : u516949160_parampara
+user : u516949160_parampara

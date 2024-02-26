@@ -35,7 +35,7 @@ if (isset($_POST) & !empty($_POST)) {
 
 <head>
 
-    <title>Enigma | Add Users</title>
+    <title>Parampara | Add Users</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -49,14 +49,14 @@ if (isset($_POST) & !empty($_POST)) {
 
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../home.css">
+    <link rel="stylesheet" href="../../admin/home.css">
 </head>
 
 <body>
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus'></i>
-            <span class="logo_name">Enigma</span>
+            <span class="logo_name">Parampara</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -118,7 +118,7 @@ if (isset($_POST) & !empty($_POST)) {
                 <img src="https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg"
                     alt="profile">
                 <span class="admin_name">
-                    <?php echo $_SESSION["Aname"] ?>
+                    <?php echo $_SESSION["admin"] ?>
                 </span>
                 <i class='bx bx-chevron-down'></i>
             </div>

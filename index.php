@@ -4,7 +4,7 @@ if(count($_POST)>0) {
 	include("login.php");
 }
 else if(isset($_SESSION["Aaccess"])) {
-	header('location: dist/index.html');
+	header('location: dist/index.php');
 }
 	
 ?>

@@ -7,7 +7,7 @@
         <div class="sidebar">
             <div class="logo-details">
                 <i class='bx bxl-c-plus-plus'></i>
-                <span class="logo_name">Enigma</span>
+                <span class="logo_name">Parampara</span>
             </div>
             <ul class="nav-links">
                 <li>
@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../admin/suggestions.php">
                         <i class='bx bx-heart'></i>
                         <span class="links_name">Feedback</span>
                     </a>
