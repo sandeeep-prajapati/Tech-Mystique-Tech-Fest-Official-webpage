@@ -32,9 +32,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = mysqli_real_escape_string($dbc, $_POST['name']);
     $description = mysqli_real_escape_string($dbc, $_POST['discription']); // fix typo in variable name
     $type = mysqli_real_escape_string($dbc, $_POST['type']);
-    $time = mysqli_real_escape_string($dbc, $_POST['time']);
+    $time = mysqli_real_escape_string($dbc, $_POST['time']);   
+    $date = mysqli_real_escape_string($dbc, $_POST['date']);
+    session_start();
+    $email = $_SESSION['pass'];
 
-    $query1 = "INSERT INTO `events` (`eid`, `name`, `description`, `type`, `time`, `date`, `image`) VALUES (NULL, '$name', '$description', '$type', '$time', '', '')";
+    $query1 = "INSERT INTO `events` (`eid`, `name`, `description`, `type`, `time`, `date`, `image`,`email`) VALUES (NULL, '$name', '$description', '$type', '$time', '$date', '','$email')";
 
     $exe = mysqli_query($dbc, $query1);
     if ($exe) {

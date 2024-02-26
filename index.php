@@ -3,7 +3,7 @@ session_start();
 if(count($_POST)>0) {
 	include("login.php");
 }
-else if(isset($_SESSION["Aaccess"])) {
+else if(isset($_SESSION["email"])) {
 	header('location: dist/index.php');
 }
 	

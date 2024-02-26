@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = mysqli_real_escape_string($dbc, $_POST['email']); 
     $mobile =  mysqli_real_escape_string($dbc, $_POST['mobile']); // fix typo in variable name and add mysqli_real_escape_string
     $suggestion = mysqli_real_escape_string($dbc, $_POST['suggestion']);
-
+    
     // Fix the SQL query syntax by adding single quotes around string values
     $query1 = "INSERT INTO `suggestions` (`id`, `name`, `email`, `mobilNo`, `suggestions`) 
                VALUES (NULL, '$name', '$email', '$mobile', '$suggestion')";

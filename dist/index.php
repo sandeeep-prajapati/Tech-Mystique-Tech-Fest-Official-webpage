@@ -140,6 +140,9 @@ if (!isset($_SESSION['Aaccess'])) {
                             <option value="Technical">Technical</option>
                         </select>
                         <br>
+                        <label for="date">date</label>
+                        <input type="date" name = "date" class="form-control">
+                        <br>
                         <label for="time">Suggest Time</label>
                         <input type="time" class="form-control" required name="time" id="">
                         <br>

@@ -12,7 +12,6 @@ $query1 = "SELECT * FROM $table where email='$email' and password='$password'";
 $exe = mysqli_query($dbc, $query1);
 $exe1 = mysqli_num_rows($exe);
 if ($exe1 > 0) {
-
 	$row = $exe->fetch_assoc();
 	$_SESSION['email'] = $row["email"];
 	$_SESSION['pass'] = $row["pass"];
