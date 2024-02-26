@@ -19,13 +19,9 @@ if (!isset($_SESSION['Aaccess'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="./css/styles.css" rel="stylesheet" />
 </head>
@@ -35,8 +31,7 @@ if (!isset($_SESSION['Aaccess'])) {
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5">
             <a class="navbar-brand fw-bold" href="#page-top">Parampara-2k24</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="bi-list"></i>
             </button>
@@ -45,8 +40,7 @@ if (!isset($_SESSION['Aaccess'])) {
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
                 </ul>
-                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
-                    data-bs-target="#feedbackModal">
+                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                     <span class="d-flex align-items-center">
                         <i class="bi-chat-text-fill me-2"></i>
                         <span class="small">Send Feedback</span>
@@ -64,8 +58,8 @@ if (!isset($_SESSION['Aaccess'])) {
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
                         <h1 class="display-1 lh-1 mb-3">6th, 7th & 8th March, 2024</h1>
                         <p class="lead fw-normal text-muted mb-5">Welcome to Parampara 2024, the pinnacle of technological innovation and creativity at ITM GIDA Gorkhpur.
-                             As we gear up to embark on a journey filled with fervor and zeal, we invite you to witness the convergence of intellect, passion, and imagination like never before.</p>
-                        
+                            As we gear up to embark on a journey filled with fervor and zeal, we invite you to witness the convergence of intellect, passion, and imagination like never before.</p>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -79,14 +73,10 @@ if (!isset($_SESSION['Aaccess'])) {
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
-                        </svg><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03"
-                                transform="translate(120.42 -49.88) rotate(45)"></rect>
-                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03"
-                                transform="translate(-49.88 120.42) rotate(-45)"></rect>
-                        </svg><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100"
-                            xmlns="http://www.w3.org/2000/svg">
+                        </svg><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
+                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect>
+                        </svg><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="50"></circle>
                         </svg>
                         <div class="device-wrapper">
@@ -112,7 +102,7 @@ if (!isset($_SESSION['Aaccess'])) {
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4">"Event Schedule: Stay abreast of the latest event schedules, timings, and venue details 
+                    <div class="h2 fs-1 text-white mb-4">"Event Schedule: Stay abreast of the latest event schedules, timings, and venue details
                         to ensure you don't miss out on any of the action-packed moments unfolding at Parampara 2024."</div>
                     <img src="assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
                 </div>
@@ -121,27 +111,15 @@ if (!isset($_SESSION['Aaccess'])) {
     </aside>
     <!-- App features section-->
 
-    
-    <section id="features">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
-                    <div class="container-fluid px-5">
 
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        </div>
-    </section>
+
     <!-- Basic features section-->
     <section class="bg-light">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
-                    
-                    
+
+
                     <!-- form -->
                     <h2 class="text-center p-3">Give use some suggestions for events</h2>
 
@@ -158,8 +136,8 @@ if (!isset($_SESSION['Aaccess'])) {
                         <select name="type" class="form-control" required>
                             <option value="">Add type</option>
                             <option value="cultural">Cultural</option>
-                            <option value="Technical">Sport</option>
-                            <option value="cultural">Technical</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Technical">Technical</option>
                         </select>
                         <br>
                         <label for="time">Suggest Time</label>
@@ -167,15 +145,159 @@ if (!isset($_SESSION['Aaccess'])) {
                         <br>
                         <input type="submit" class="bg-success form-control text-white">
                     </form>
-                    
+
                 </div>
                 <div class="col-sm-8 col-md-6">
-                    <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
-                            src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+                    <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- event-list -->
+    <section id="features">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-12 order-lg-1 mb-5 mb-lg-0">
+                    <div class="container-fluid ">
+                    <h2 class="text-center"> all suggested event of CRs for Technical activity </h1>
+                        <table class="table container">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event ID</th>
+                                    <th scope="col">Event Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require '../admin/connect.php';
+                                $query1 = "select * from events where type = 'Technical'";
+                                $exe1 = mysqli_query($dbc, $query1);
+                                while ($row1 = mysqli_fetch_array($exe1)) {
+                                    $p_id = $row1['eid'];
+                                    $name = $row1['name'];
+                                    $desc = $row1['description'];
+                                    $type = $row1['type'];
+                                    $date = $row1['date'];
+                                    $time = $row1['time'];
+                                    $img = $row1['image'];
+                                    echo "
+                                                <tr>
+                                                    <td>" . $p_id . "</td>
+                                                    <td>" . $name . "</td>
+                                                    <td>" . $desc . "</td>
+                                                    <td>" . $type . "</td>
+                                                    <td>" . $date . "</td>
+                                                    <td>" . $time . "</td>
+                                                    
+
+                            </tr>";
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                        <h2 class="text-center"> all suggested event of CRs for Sport activity </h1>
+                        <table class="table container">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event ID</th>
+                                    <th scope="col">Event Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require '../admin/connect.php';
+                                $query1 = "select * from events where type = 'Sport'";
+                                $exe1 = mysqli_query($dbc, $query1);
+                                while ($row1 = mysqli_fetch_array($exe1)) {
+                                    $p_id = $row1['eid'];
+                                    $name = $row1['name'];
+                                    $desc = $row1['description'];
+                                    $type = $row1['type'];
+                                    $date = $row1['date'];
+                                    $time = $row1['time'];
+                                    $img = $row1['image'];
+                                    echo "
+                                                <tr>
+                                                    <td>" . $p_id . "</td>
+                                                    <td>" . $name . "</td>
+                                                    <td>" . $desc . "</td>
+                                                    <td>" . $type . "</td>
+                                                    <td>" . $date . "</td>
+                                                    <td>" . $time . "</td>
+                                                    
+
+                            </tr>";
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                        
+                        <h2 class="text-center"> all suggested event of CR for cultural activity</h1>
+                        <table class="table container">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event ID</th>
+                                    <th scope="col">Event Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require '../admin/connect.php';
+                                $query1 = "select * from events where type = 'cultural'";
+                                $exe1 = mysqli_query($dbc, $query1);
+                                while ($row1 = mysqli_fetch_array($exe1)) {
+                                    $p_id = $row1['eid'];
+                                    $name = $row1['name'];
+                                    $desc = $row1['description'];
+                                    $type = $row1['type'];
+                                    $date = $row1['date'];
+                                    $time = $row1['time'];
+                                    $img = $row1['image'];
+                                    echo "
+                                                <tr>
+                                                    <td>" . $p_id . "</td>
+                                                    <td>" . $name . "</td>
+                                                    <td>" . $desc . "</td>
+                                                    <td>" . $type . "</td>
+                                                    <td>" . $date . "</td>
+                                                    <td>" . $time . "</td>
+                                                    
+
+                            </tr>";
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+
     <!-- Call to action section-->
     <section class="cta">
         <div class="cta-content">
@@ -218,8 +340,7 @@ if (!isset($_SESSION['Aaccess'])) {
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary-to-secondary p-4">
                     <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
-                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body border-0 p-4">
                     <!-- * * * * * * * * * * * * * * *-->
@@ -240,10 +361,10 @@ if (!isset($_SESSION['Aaccess'])) {
                         <input type="text" class="form-control" name="mobile" placeholder="Enter your mobile no">
                         <br>
                         <label for="description">Suggestion</label>
-                        <textarea name="suggestion" id=""  class="form-control" rows="5" placeholder="Enter Your suggestion"></textarea>
+                        <textarea name="suggestion" id="" class="form-control" rows="5" placeholder="Enter Your suggestion"></textarea>
                         <br>
                         <input type="submit" class="form-control text-white bg-success">
-                    </form>                    
+                    </form>
                 </div>
             </div>
         </div>
