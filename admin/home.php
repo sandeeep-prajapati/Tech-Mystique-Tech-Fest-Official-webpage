@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header('location:index.php');
+    header('location: index.php');
 } else {
     require 'connect.php';
     $q1 = "SELECT COUNT('uid') AS u FROM users";
@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <title>Admin page</title>
     <?php
-    include_once('./templates/sidebar.php');
+    include_once('../templates/sidebar.php');
     ?>
     <div class="home-content">
         <div class="overview-boxes">

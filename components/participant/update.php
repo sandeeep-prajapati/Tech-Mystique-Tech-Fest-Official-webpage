@@ -1,5 +1,5 @@
 <?php
-require '../../connect.php';
+require '../../admin/connect.php';
 
 session_start();
 
@@ -29,7 +29,7 @@ if (isset($_POST) & !empty($_POST)) {
 
     $res = mysqli_query($dbc, $query);
     if ($res) {
-        header('location: ../../user.php');
+        header('location: ../../admin/user.php');
     } else {
         $fmsg = "Failed to Insert data.";
     }
@@ -54,14 +54,14 @@ if (isset($_POST) & !empty($_POST)) {
 
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../home.css">
+    <link rel="stylesheet" href="../../admin/home.css">
 </head>
 
 <body>
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus'></i>
-            <span class="logo_name">Enigma</span>
+            <span class="logo_name">Parampara</span>
         </div>
         <ul class="nav-links">
             <li>

@@ -1,7 +1,9 @@
 <?php
+session_start();
 if (!isset($_SESSION['admin'])) {
     header('location: index.php');
 }
+else{
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@ if (!isset($_SESSION['admin'])) {
         </script>
 
     <?php
-    include_once('./templates/sidebar.php');
+    include_once('../templates/sidebar.php');
     function eventName($eid)
     {
         if ($eid == 10)
@@ -131,7 +133,11 @@ if (!isset($_SESSION['admin'])) {
     </body>
 
     <?php
-    include_once('./templates/footer.php');
+    include_once('../templates/footer.php');
     ?>
 
 </html>
+
+<?php
+}
+?>

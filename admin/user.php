@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header('location: index.php');
+    header('location: ../admin/index.php');
 }
 ?>
 
@@ -43,13 +43,14 @@ if (!isset($_SESSION['admin'])) {
         </script>
 
     <?php
-    include_once('./templates/sidebar.php');
+   
+    include_once('../templates/sidebar.php');
     require 'connect.php'
     ?>
     <br><br>
     <table class="table container" style="margin-top: 75px; margin-left: 20px; padding-right: 20px">
         <div class="row" style="margin-top: 75px; margin-bottom: 20px; margin-left: 20px;">
-            <a href="./components/user/add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Add
+            <a href="../components/user/add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Add
                     New</button></a>
         </div>
         <thead>
@@ -83,11 +84,11 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $year . "</td>
                                     <td>" . $dept . "</td>
                                     <td>
-						                <a href='./components/user/update.php?id=$p_id'>
+						                <a href='../components/user/update.php?id=$p_id'>
                                             <button type='button' class='btn btn-info'>Edit</button>
                                         </a>
 
-                                        <a href='./components/user/delete.php?id=$p_id'>
+                                        <a href='../components/user/delete.php?id=$p_id'>
                                             <button type='button' class='btn btn-danger btn-xs'>Delete</button>
                                         </a>
                                     </td>
@@ -103,6 +104,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
     </section>
     <?php
-    include_once('./templates/footer.php');
+    include_once('../templates/footer.php');
     ?>
     </body>

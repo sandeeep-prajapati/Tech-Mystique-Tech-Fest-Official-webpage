@@ -2,9 +2,10 @@
 session_start();
 if(count($_POST)>0) {
 	include("login.php");
-} else if(isset($_SESSION["admin"])) {
-	header('location: home.php');
-}	
+}
+else if(isset($_SESSION["Aaccess"])) {
+	header('location: dist/index.php');
+}
 	
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ if(count($_POST)>0) {
 
 <head>
     <link rel="icon" href="http://cb.mitindia.edu/cb/workshopimages/cbi1.png">
-    <title>Admin login</title>
+    <title>User login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -337,7 +338,7 @@ if(count($_POST)>0) {
             </div>
             <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
                 <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-                    <h1><a href="#" rel="dofollow">Enigma</a></h1>
+                    <h1><a href="#" rel="dofollow">Parampara</a></h1>
                 </div>
                 <div class="formbg-outer">
                     <div class="formbg">

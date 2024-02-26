@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header('location: index.php');
+    header('location: ../admin/index.php');
 }
 ?>
 
@@ -43,59 +43,48 @@ if (!isset($_SESSION['admin'])) {
         </script>
 
     <?php
-    include_once('./templates/sidebar.php');
-    ?>
-
-    <?php
-    require('connect.php');
+   
+    include_once('../templates/sidebar.php');
+    require 'connect.php'
     ?>
     <br><br>
-    <div class="row" style="margin-top: 75px; margin-bottom: 20px; margin-left: 20px;">
-        <a href="./components/event/add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Add
-                New</button></a>
-    </div>
-    <table class="table container">
+    <table class="table container" style="margin-top: 75px; margin-left: 20px; padding-right: 20px">
+        <div class="row" style="margin-top: 75px; margin-bottom: 20px; margin-left: 20px;">
+            
+        </div>
         <thead>
             <tr>
-                <th scope="col">Event ID</th>
-                <th scope="col">Event Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Type</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th></th>
-                <th></th>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone No</th>
+                <th scope="col">suggestions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $query1 = "select * from events";
+            $query1 = "select * from suggestions";
             $exe1 = mysqli_query($dbc, $query1);
             while ($row1 = mysqli_fetch_array($exe1)) {
-                $p_id = $row1['eid'];
+                $p_id = $row1['id'];
                 $name = $row1['name'];
-                $desc = $row1['description'];
-                $type = $row1['type'];
-                $date = $row1['date'];
-                $time = $row1['time'];
-                $img = $row1['image'];
+                $email = $row1['email'];
+                $phone = $row1['mobilNo'];
+                $suggestions = $row1['suggestions'];
                 echo "
                                 <tr>
                                     <td>" . $p_id . "</td>
                                     <td>" . $name . "</td>
-                                    <td>" . $desc . "</td>
-                                    <td>" . $type . "</td>
-                                    <td>" . $date . "</td>
-                                    <td>" . $time . "</td>
+                                    <td>" . $email . "</td>
+                                    <td>" . $phone . "</td>
+                                    <td>" . $suggestions . "</td>
                                     <td>
-						<a href='./components/event/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
-
-            <a href='./components/event/delete.php?id=$p_id'>
-                <button type='button' class='btn btn-danger btn-xs'>Delete</button> </a>
-
-            </td>
-
-            </tr>";
+                                        <a href='../components/suggestions/delete.php?id=$p_id'>
+                                            <button type='button' class='btn btn-danger btn-xs'>Delete</button>
+                                        </a>
+                                    </td>
+                                </tr>";
             }
 
             ?>
@@ -107,6 +96,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
     </section>
     <?php
-    include_once('./templates/footer.php');
+    include_once('../templates/footer.php');
     ?>
     </body>
