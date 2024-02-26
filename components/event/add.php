@@ -1,5 +1,5 @@
 <?php
-require '../../connect.php';
+require '../../admin/connect.php';
 session_start();
 
 if (!(isset($_SESSION['admin']))) {
@@ -20,7 +20,7 @@ if (isset($_POST) & !empty($_POST)) {
 
     $res = mysqli_query($dbc, $query);
     if ($res) {
-        header('location: ../../events.php');
+        header('location: ../../admin/events.php');
     } else {
         $fmsg = "Failed to Insert data.";
         print_r($res);

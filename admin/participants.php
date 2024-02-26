@@ -1,7 +1,9 @@
 <?php
+session_start();
 if (!isset($_SESSION['admin'])) {
     header('location: index.php');
 }
+else{
 ?>
 
 <!DOCTYPE html>
@@ -135,3 +137,7 @@ if (!isset($_SESSION['admin'])) {
     ?>
 
 </html>
+
+<?php
+}
+?>

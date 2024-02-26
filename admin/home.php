@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['Aaccess'])) {
     header('location:index.php');
 } else {
     require 'connect.php';
@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <title>Admin page</title>
     <?php
-    include_once('./templates/sidebar.php');
+    include_once('../templates/sidebar.php');
     ?>
     <div class="home-content">
         <div class="overview-boxes">

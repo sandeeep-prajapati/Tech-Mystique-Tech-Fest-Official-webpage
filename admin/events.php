@@ -43,7 +43,7 @@ if (!isset($_SESSION['admin'])) {
         </script>
 
     <?php
-    include_once('./templates/sidebar.php');
+    include_once('../templates/sidebar.php');
     ?>
 
     <?php
@@ -88,9 +88,9 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $date . "</td>
                                     <td>" . $time . "</td>
                                     <td>
-						<a href='./components/event/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
+						<a href='../components/event/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
 
-            <a href='./components/event/delete.php?id=$p_id'>
+            <a href='../components/event/delete.php?id=$p_id'>
                 <button type='button' class='btn btn-danger btn-xs'>Delete</button> </a>
 
             </td>
@@ -107,6 +107,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
     </section>
     <?php
-    include_once('./templates/footer.php');
+    include_once('../templates/footer.php');
     ?>
     </body>
