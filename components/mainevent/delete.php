@@ -10,7 +10,7 @@ if (!(isset($_SESSION['admin']))) {
 }
 
 $id = $_GET['id'];
-$DelSql = "DELETE FROM `events` WHERE eid=$id";
+$DelSql = "DELETE FROM `main_events` WHERE eid=$id";
 $res = mysqli_query($dbc, $DelSql);
 if ($res) {
 	header('location: ../../admin/events.php');

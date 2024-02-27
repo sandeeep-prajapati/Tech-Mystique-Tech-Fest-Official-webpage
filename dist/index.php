@@ -35,6 +35,7 @@ if (!isset($_SESSION['Aaccess'])) {
                 Menu
                 <i class="bi-list"></i>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
