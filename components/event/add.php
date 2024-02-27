@@ -48,7 +48,7 @@ if (isset($_POST) & !empty($_POST)) {
 
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../home.css">
+    <link rel="stylesheet" href="../../admin/home.css">
 </head>
 
 <body>
@@ -131,7 +131,7 @@ if (isset($_POST) & !empty($_POST)) {
             <?php } ?>
 
             <h2 style="padding-top: 120px; margin-left: 20px">Add New Event</h2>
-            <form method="post" style="margin-left: 20px" enctype="multipart/form-data">
+            <form method="post" style="margin-left: 20px" action="../backend/addevents.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="name" value="" required />
@@ -143,8 +143,10 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Category: </label>
                     <select name="type">
-                        <option value="technical">Technical</option>
-                        <option value="non-technical">Non-Technical</option>
+                    <option value="">Add type</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Technical">Technical</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -155,10 +157,10 @@ if (isset($_POST) & !empty($_POST)) {
                     <label>Time</label>
                     <input type="time" class="form-control" name="time" value="" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Image </label>
                     <input type="url" class="form-control" name="img" value="" />
-                </div>
+                </div> -->
                 <input type="submit" class="btn btn-primary" value="Add Event" />
             </form>
         </div>

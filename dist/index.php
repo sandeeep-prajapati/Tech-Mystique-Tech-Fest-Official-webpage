@@ -38,7 +38,7 @@ if (!isset($_SESSION['Aaccess'])) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Final Events</a></li>
                 </ul>
                 <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                     <span class="d-flex align-items-center">
@@ -316,12 +316,48 @@ if (!isset($_SESSION['Aaccess'])) {
     <!-- App badge section-->
     <section class="bg-gradient-primary-to-secondary" id="download">
         <div class="container px-5">
-            <h2 class="text-center text-white font-alt mb-4">There are wiil be list of specific event</h2>
-            <!-- <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg"
-                        alt="..." /></a>
-                <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
-            </div> -->
+            <h2 class="text-center text-white font-alt mb-4">All final event as listed bellow</h2>
+            <table class="table container">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event ID</th>
+                                    <th scope="col">Event Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require '../admin/connect.php';
+                                $query1 = "select * from main_events where type = 'cultural'";
+                                $exe1 = mysqli_query($dbc, $query1);
+                                while ($row1 = mysqli_fetch_array($exe1)) {
+                                    $p_id = $row1['eid'];
+                                    $name = $row1['name'];
+                                    $desc = $row1['description'];
+                                    $type = $row1['type'];
+                                    $date = $row1['date'];
+                                    $time = $row1['time'];
+                                    echo "
+                                                <tr>
+                                                    <td>" . $p_id . "</td>
+                                                    <td>" . $name . "</td>
+                                                    <td>" . $desc . "</td>
+                                                    <td>" . $type . "</td>
+                                                    <td>" . $date . "</td>
+                                                    <td>" . $time . "</td>
+                                                    
+
+                            </tr>";
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
         </div>
     </section>
     <!-- Footer-->
