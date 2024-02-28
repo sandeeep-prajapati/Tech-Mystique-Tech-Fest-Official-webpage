@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['Aaccess'])) {
-    header('location: ../index.php');
+    header('location: ../index1.php');
 }
 ?>
 
@@ -35,7 +35,7 @@ if (!isset($_SESSION['Aaccess'])) {
                 Menu
                 <i class="bi-list"></i>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['Aaccess'])) {
                         </select>
                         <br>
                         <label for="date">date</label>
-                        <input type="date" name = "date" class="form-control">
+                        <input type="date" name="date" class="form-control">
                         <br>
                         <label for="time">Suggest Time</label>
                         <input type="time" class="form-control" required name="time" id="">
@@ -163,34 +163,34 @@ if (!isset($_SESSION['Aaccess'])) {
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-12 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid ">
-                    <h2 class="text-center"> all suggested event of CRs for Technical activity </h1>
-                        <table class="table container">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Event ID</th>
-                                    <th scope="col">Event Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                require '../admin/connect.php';
-                                $query1 = "select * from events where type = 'Technical'";
-                                $exe1 = mysqli_query($dbc, $query1);
-                                while ($row1 = mysqli_fetch_array($exe1)) {
-                                    $p_id = $row1['eid'];
-                                    $name = $row1['name'];
-                                    $desc = $row1['description'];
-                                    $type = $row1['type'];
-                                    $date = $row1['date'];
-                                    $time = $row1['time'];
-                                    $img = $row1['image'];
-                                    echo "
+                        <h2 class="text-center"> all suggested event of CRs for Technical activity </h1>
+                            <table class="table container">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Event ID</th>
+                                        <th scope="col">Event Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    require '../admin/connect.php';
+                                    $query1 = "select * from events where type = 'Technical'";
+                                    $exe1 = mysqli_query($dbc, $query1);
+                                    while ($row1 = mysqli_fetch_array($exe1)) {
+                                        $p_id = $row1['eid'];
+                                        $name = $row1['name'];
+                                        $desc = $row1['description'];
+                                        $type = $row1['type'];
+                                        $date = $row1['date'];
+                                        $time = $row1['time'];
+                                        $img = $row1['image'];
+                                        echo "
                                                 <tr>
                                                     <td>" . $p_id . "</td>
                                                     <td>" . $name . "</td>
@@ -201,39 +201,39 @@ if (!isset($_SESSION['Aaccess'])) {
                                                     
 
                             </tr>";
-                                }
+                                    }
 
-                                ?>
-                            </tbody>
-                        </table>
-                        <h2 class="text-center"> all suggested event of CRs for Sport activity </h1>
-                        <table class="table container">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Event ID</th>
-                                    <th scope="col">Event Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                require '../admin/connect.php';
-                                $query1 = "select * from events where type = 'Sport'";
-                                $exe1 = mysqli_query($dbc, $query1);
-                                while ($row1 = mysqli_fetch_array($exe1)) {
-                                    $p_id = $row1['eid'];
-                                    $name = $row1['name'];
-                                    $desc = $row1['description'];
-                                    $type = $row1['type'];
-                                    $date = $row1['date'];
-                                    $time = $row1['time'];
-                                    $img = $row1['image'];
-                                    echo "
+                                    ?>
+                                </tbody>
+                            </table>
+                            <h2 class="text-center"> all suggested event of CRs for Sport activity </h1>
+                                <table class="table container">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Event ID</th>
+                                            <th scope="col">Event Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        require '../admin/connect.php';
+                                        $query1 = "select * from events where type = 'Sport'";
+                                        $exe1 = mysqli_query($dbc, $query1);
+                                        while ($row1 = mysqli_fetch_array($exe1)) {
+                                            $p_id = $row1['eid'];
+                                            $name = $row1['name'];
+                                            $desc = $row1['description'];
+                                            $type = $row1['type'];
+                                            $date = $row1['date'];
+                                            $time = $row1['time'];
+                                            $img = $row1['image'];
+                                            echo "
                                                 <tr>
                                                     <td>" . $p_id . "</td>
                                                     <td>" . $name . "</td>
@@ -244,40 +244,40 @@ if (!isset($_SESSION['Aaccess'])) {
                                                     
 
                             </tr>";
-                                }
+                                        }
 
-                                ?>
-                            </tbody>
-                        </table>
-                        
-                        <h2 class="text-center"> all suggested event of CR for cultural activity</h1>
-                        <table class="table container">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Event ID</th>
-                                    <th scope="col">Event Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                require '../admin/connect.php';
-                                $query1 = "select * from events where type = 'cultural'";
-                                $exe1 = mysqli_query($dbc, $query1);
-                                while ($row1 = mysqli_fetch_array($exe1)) {
-                                    $p_id = $row1['eid'];
-                                    $name = $row1['name'];
-                                    $desc = $row1['description'];
-                                    $type = $row1['type'];
-                                    $date = $row1['date'];
-                                    $time = $row1['time'];
-                                    $img = $row1['image'];
-                                    echo "
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                                <h2 class="text-center"> all suggested event of CR for cultural activity</h1>
+                                    <table class="table container">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Event ID</th>
+                                                <th scope="col">Event Name</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            require '../admin/connect.php';
+                                            $query1 = "select * from events where type = 'cultural'";
+                                            $exe1 = mysqli_query($dbc, $query1);
+                                            while ($row1 = mysqli_fetch_array($exe1)) {
+                                                $p_id = $row1['eid'];
+                                                $name = $row1['name'];
+                                                $desc = $row1['description'];
+                                                $type = $row1['type'];
+                                                $date = $row1['date'];
+                                                $time = $row1['time'];
+                                                $img = $row1['image'];
+                                                echo "
                                                 <tr>
                                                     <td>" . $p_id . "</td>
                                                     <td>" . $name . "</td>
@@ -288,11 +288,11 @@ if (!isset($_SESSION['Aaccess'])) {
                                                     
 
                             </tr>";
-                                }
+                                            }
 
-                                ?>
-                            </tbody>
-                        </table>
+                                            ?>
+                                        </tbody>
+                                    </table>
                     </div>
                 </div>
             </div>
@@ -319,31 +319,31 @@ if (!isset($_SESSION['Aaccess'])) {
         <div class="container px-5">
             <h2 class="text-center text-white font-alt mb-4">All final event as listed bellow</h2>
             <table class="table container">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Event ID</th>
-                                    <th scope="col">Event Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                require '../admin/connect.php';
-                                $query1 = "select * from main_events where type = 'cultural'";
-                                $exe1 = mysqli_query($dbc, $query1);
-                                while ($row1 = mysqli_fetch_array($exe1)) {
-                                    $p_id = $row1['eid'];
-                                    $name = $row1['name'];
-                                    $desc = $row1['description'];
-                                    $type = $row1['type'];
-                                    $date = $row1['date'];
-                                    $time = $row1['time'];
-                                    echo "
+                <thead>
+                    <tr>
+                        <th scope="col">Event ID</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    require '../admin/connect.php';
+                    $query1 = "select * from main_events";
+                    $exe1 = mysqli_query($dbc, $query1);
+                    while ($row1 = mysqli_fetch_array($exe1)) {
+                        $p_id = $row1['eid'];
+                        $name = $row1['name'];
+                        $desc = $row1['description'];
+                        $type = $row1['type'];
+                        $date = $row1['date'];
+                        $time = $row1['time'];
+                        echo "
                                                 <tr>
                                                     <td>" . $p_id . "</td>
                                                     <td>" . $name . "</td>
@@ -354,11 +354,11 @@ if (!isset($_SESSION['Aaccess'])) {
                                                     
 
                             </tr>";
-                                }
+                    }
 
-                                ?>
-                            </tbody>
-                        </table>
+                    ?>
+                </tbody>
+            </table>
         </div>
     </section>
     <!-- Footer-->

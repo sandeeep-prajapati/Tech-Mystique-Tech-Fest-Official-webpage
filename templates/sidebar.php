@@ -31,7 +31,7 @@
                 <li>
                     <a href="participants.php">
                         <i class='bx bx-pie-chart-alt-2'></i>
-                        <span class="links_name">Participants</span>
+                        <span class="links_name">heads</span>
                     </a>
                 </li>
                 <li>
