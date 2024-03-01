@@ -12,6 +12,9 @@
   <?php
   require 'usercomponents/navbar.php';
   ?>
+  <div class="row p-2">
+    <h2 class="text-success text center text-center">All event head Utkarsh Dubey contact info : +919580990883</h2>
+  </div>
   <h1 class="text-center">List of all Leaders who lead events</h1>
   <table class="table container table-striped">
     <thead>
@@ -25,18 +28,19 @@
     <tbody>
       <?php
       require './admin/connect.php';
-      $query1 = "select * from participants where position = 'lead'";
+      $query1 = "select * from participants where position = 'head'";
       $exe1 = mysqli_query($dbc, $query1);
       while ($row1 = mysqli_fetch_array($exe1)) {
         $p_id = $row1['eid'];
         $name = $row1['name'];
         $position = $row1['position'];
+        $eventname = $row1['eventname'];
         echo "
                                                 <tr>
                                                     <td>" . $p_id . "</td>
                                                     <td>" . $name . "</td>
                                                     <td>" . $position . "</td>
-                                                    <td>hfgjk</td>
+                                                    <td>" . $eventname . "</td>
                                                     
 
                             </tr>";
@@ -46,7 +50,9 @@
     </tbody>
   </table>
 
-  
+  <?php
+  include 'usercomponents/footer.php'
+  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

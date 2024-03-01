@@ -93,12 +93,11 @@ if (!isset($_SESSION['admin'])) {
                                 New</button></a>
                     </div>
                     <br>
-                    <h2 class ="text-center">All member related to events</h2>
+                    <h2 class ="text-center">All member related to sport events</h2>
                     <a href="./participants.php" style="text-decoration: none; padding:10px">All members</a>
                     <a href="./cultural_events.php" style="text-decoration: none; padding:10px">All cultural events member</a>
                     <a href="./sport_participants.php" style="text-decoration: none; padding:10px">All sport events member</a>
                     <a href="./technical_participants.php" style="text-decoration: none; padding:10px">All technical event member</a>
-                    
                     <table class="table container">
                         <thead>
                             <tr>
@@ -112,8 +111,8 @@ if (!isset($_SESSION['admin'])) {
                         </thead>
                         <tbody>
                             <?php
-                            // $query1 = "select * from participants where type = 'Technical'";
-                            $query1 = "select * from participants";
+                            $query1 = "select * from participants where type = 'Sport'";
+                            // $query1 = "select * from participants";
                             
                             $exe1 = mysqli_query($dbc, $query1);
                             while ($row1 = mysqli_fetch_array($exe1)) {

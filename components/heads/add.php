@@ -151,9 +151,9 @@ if (isset($_POST) & !empty($_POST)) {
                     <label>Position</label>
                     <select name="position" class="form-control">
                         <option value="">Add type</option>
-                        <option value="lead">Leader</option>
-                        <option value="head">head(for a event)</option>
-                        <option value="co-head">co-head(for a event)</option>
+                        <option value="head">Leader</option>
+                        <option value="event-head">head(for a event)</option>
+                        <option value="event-co-head">co-head(for a event)</option>
                         <option value="teacher">Teacher</option>
                     </select>
                 </div>

@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/suggestions.php">
+                    <a href="suggestions.php">
                         <i class='bx bx-heart'></i>
                         <span class="links_name">Feedback</span>
                     </a>

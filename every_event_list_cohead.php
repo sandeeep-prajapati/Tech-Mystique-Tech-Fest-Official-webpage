@@ -12,7 +12,7 @@
   <?php
   require 'usercomponents/navbar.php';
   ?>
-  <h1 class="text-center">List of all Teacher who lead events</h1>
+  <h1 class="text-center">List of all event co-head who lead event a particular event</h1>
   <table class="table container table-striped">
     <thead>
       <tr>
@@ -25,7 +25,7 @@
     <tbody>
       <?php
       require './admin/connect.php';
-      $query1 = "select * from participants where position = 'co-head'";
+      $query1 = "select * from participants where position = 'event-co-head'";
       $exe1 = mysqli_query($dbc, $query1);
       while ($row1 = mysqli_fetch_array($exe1)) {
         $p_id = $row1['eid'];
@@ -47,7 +47,9 @@
     </tbody>
   </table>
 
-  
+  <?php
+  include 'usercomponents/footer.php'
+  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
