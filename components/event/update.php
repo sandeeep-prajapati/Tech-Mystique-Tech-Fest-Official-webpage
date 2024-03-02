@@ -149,8 +149,10 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Category</label>
                     <select class="form-select" aria-label="Select Event" name="type">
-                        <option value="technical">Technical</option>
-                        <option value="non technical">Non Technical</option>
+                            <option value="<?php echo $r['type']; ?>">Add type</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Technical">Technical</option>
                     </select>
                 </div>
                 <div class="form-group">

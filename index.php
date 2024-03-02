@@ -12,19 +12,10 @@
   <?php
   require 'usercomponents/navbar.php';
   ?>
-  <h1 class="text-center">All event list releted to technical</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Event Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Type</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-      </tr>
-    </thead>
-    <tbody>
+  <p class="text-danger text-center">date and time are not fixed yet, all there date and time are dummy yet</p>
+  <h1 class="text-center text-success">All event list releted to technical</h1>
+  <div class="container-fluid">
+    <div class="row">
       <?php
       require './admin/connect.php';
       $query1 = "select * from main_events where type = 'technical'";
@@ -36,103 +27,88 @@
         $type = $row1['type'];
         $date = $row1['date'];
         $time = $row1['time'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $desc . "</td>
-                                                    <td>" . $type . "</td>
-                                                    <td>" . $date . "</td>
-                                                    <td>" . $time . "</td>
-                                                    
-
-                            </tr>";
-      }
-
       ?>
-    </tbody>
-  </table>
-
-  <h1 class="text-center">All event list releted to cultural</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Event Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Type</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-      </tr>
-    </thead>
-    <tbody>
+      <div class="col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-success"><?php echo $name ?></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $type ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $date ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $time ?></h6>
+            <p class="card-text"><?php echo $desc ?></p>
+          </div>
+        </div>
+      </div>
       <?php
-      require './admin/connect.php';
-      $query1 = "select * from main_events where type = 'cultural'";
-      $exe1 = mysqli_query($dbc, $query1);
-      while ($row1 = mysqli_fetch_array($exe1)) {
-        $p_id = $row1['eid'];
-        $name = $row1['name'];
-        $desc = $row1['description'];
-        $type = $row1['type'];
-        $date = $row1['date'];
-        $time = $row1['time'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $desc . "</td>
-                                                    <td>" . $type . "</td>
-                                                    <td>" . $date . "</td>
-                                                    <td>" . $time . "</td>
-                                                    
 
-                            </tr>";
       }
-
       ?>
-    </tbody>
-  </table>
-  <h1 class="text-center">All event list releted to Sport</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Event Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Type</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      require './admin/connect.php';
-      $query1 = "select * from main_events where type = 'Sport'";
-      $exe1 = mysqli_query($dbc, $query1);
-      while ($row1 = mysqli_fetch_array($exe1)) {
-        $p_id = $row1['eid'];
-        $name = $row1['name'];
-        $desc = $row1['description'];
-        $type = $row1['type'];
-        $date = $row1['date'];
-        $time = $row1['time'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $desc . "</td>
-                                                    <td>" . $type . "</td>
-                                                    <td>" . $date . "</td>
-                                                    <td>" . $time . "</td>
-                                                    
+    </div>
+  </div>
 
-                            </tr>";
-      }
+  <h1 class="text-center text-primary">All event list releted to cultural</h1>
 
-      ?>
-    </tbody>
-  </table>
+  
+  <div class="row">
+    <?php
+    require './admin/connect.php';
+    $query1 = "select * from main_events where type = 'cultural'";
+    $exe1 = mysqli_query($dbc, $query1);
+    while ($row1 = mysqli_fetch_array($exe1)) {
+      $p_id = $row1['eid'];
+      $name = $row1['name'];
+      $desc = $row1['description'];
+      $type = $row1['type'];
+      $date = $row1['date'];
+      $time = $row1['time'];
+    ?>
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-primary"><?php echo $name ?></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $type ?></h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $date ?></h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $time ?></h6>
+          <p class="card-text"><?php echo $desc ?></p>
+        </div>
+      </div>
+    </div>
+    <?php
+
+    }
+    ?>
+  </div>
+
+  <h1 class="text-center text-warning">All event list releted to Sport</h1>
+  <div class="row">
+  <?php
+    require './admin/connect.php';
+    $query1 = "select * from main_events where type = 'Sport'";
+    $exe1 = mysqli_query($dbc, $query1);
+    while ($row1 = mysqli_fetch_array($exe1)) {
+      $p_id = $row1['eid'];
+      $name = $row1['name'];
+      $desc = $row1['description'];
+      $type = $row1['type'];
+      $date = $row1['date'];
+      $time = $row1['time'];
+    ?>
+    <div class="col-md-3 col-sm-6">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title text-warning"><?php echo $name ?></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $type ?></h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $date ?></h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $time ?></h6>
+          <p class="card-text"><?php echo $desc ?></p>
+        </div>
+      </div>
+    </div>
+    <?php
+
+    }
+    ?>
+  </div>
   <?php
   include "usercomponents/footer.php";
   ?>

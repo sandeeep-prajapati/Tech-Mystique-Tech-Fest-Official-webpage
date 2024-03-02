@@ -16,39 +16,35 @@
     <h2 class="text-success text center text-center">All event head Utkarsh Dubey contact info : +919580990883</h2>
   </div>
   <h1 class="text-center">List of all Leaders who lead events</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Event Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
+
+  <div class="row">
+  <?php
       require './admin/connect.php';
       $query1 = "select * from participants where position = 'head'";
       $exe1 = mysqli_query($dbc, $query1);
       while ($row1 = mysqli_fetch_array($exe1)) {
         $p_id = $row1['eid'];
         $name = $row1['name'];
+        $type = $row1['type'];
         $position = $row1['position'];
         $eventname = $row1['eventname'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $position . "</td>
-                                                    <td>" . $eventname . "</td>
-                                                    
-
-                            </tr>";
-      }
-
       ?>
-    </tbody>
-  </table>
+      <div class="col-sm-6 col-md-3">
+        <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title text-success"><?php echo $name ?></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+            
+          </div>
+        </div>
+      </div>
+      <?php
+
+      }
+      ?>
+  </div>
 
   <?php
   include 'usercomponents/footer.php'

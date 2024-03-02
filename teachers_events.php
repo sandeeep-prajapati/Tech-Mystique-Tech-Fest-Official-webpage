@@ -12,18 +12,10 @@
   <?php
   require 'usercomponents/navbar.php';
   ?>
-  <h1 class="text-center">List of all Teacher who lead events</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Event Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
+  <h1 class="text-center text-success">List of all Teacher who lead events</h1>
+  
+  <div class="row">
+    <?php
       require './admin/connect.php';
       $query1 = "select * from participants where position = 'teacher'";
       $exe1 = mysqli_query($dbc, $query1);
@@ -32,20 +24,23 @@
         $name = $row1['name'];
         $position = $row1['position'];
         $eventname = $row1['eventname'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $position . "</td>
-                                                    <td>" . $eventname . "</td>
-                                                    
-
-                            </tr>";
-      }
-
       ?>
-    </tbody>
-  </table>
+      <div class="col-md-3 col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-success"><?php echo $name ?></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+            
+          </div>
+        </div>
+      </div>
+      <?php
+
+      }
+      ?>
+    </div>
+  </div>
 
   <?php
   include 'usercomponents/footer.php'

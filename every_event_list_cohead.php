@@ -12,41 +12,98 @@
   <?php
   require 'usercomponents/navbar.php';
   ?>
-  <h1 class="text-center">List of all event co-head who lead event a particular event</h1>
-  <table class="table container table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Event ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Event Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      require './admin/connect.php';
-      $query1 = "select * from participants where position = 'event-co-head'";
-      $exe1 = mysqli_query($dbc, $query1);
-      while ($row1 = mysqli_fetch_array($exe1)) {
-        $p_id = $row1['eid'];
-        $name = $row1['name'];
-        $position = $row1['position'];
-        $eventname = $row1['eventname'];
-        echo "
-                                                <tr>
-                                                    <td>" . $p_id . "</td>
-                                                    <td>" . $name . "</td>
-                                                    <td>" . $position . "</td>
-                                                    <td>" . $eventname . "</td>
-                                                    
 
-                            </tr>";
-      }
 
-      ?>
-    </tbody>
-  </table>
 
+
+
+<h1 class="text-center text-success">List of all event co-head who lead a event of technical events</h1>
+<div class="row">
+
+<?php
+require './admin/connect.php';
+$query1 = "select * from participants where position = 'event-co-head' and type = 'technical'";
+$exe1 = mysqli_query($dbc, $query1);
+while ($row1 = mysqli_fetch_array($exe1)) {
+  $p_id = $row1['eid'];
+  $name = $row1['name'];
+  $type = $row1['type'];
+  $position = $row1['position'];
+  $eventname = $row1['eventname'];
+?>
+  <div class="col-md-3 col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-success"><?php echo $name ?></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+      </div>
+    </div>
+  </div>
+<?php
+
+}
+?>
+</div>
+<h1 class="text-center text-primary">List of all event co-head who lead a event of cultural events</h1>
+<div class="row">
+<?php
+require './admin/connect.php';
+$query1 = "select * from participants where position = 'event-co-head' and type = 'cultural'";
+$exe1 = mysqli_query($dbc, $query1);
+while ($row1 = mysqli_fetch_array($exe1)) {
+  $p_id = $row1['eid'];
+  $name = $row1['name'];
+  $type = $row1['type'];
+  $position = $row1['position'];
+  $eventname = $row1['eventname'];
+?>
+  <div class="col-md-3 col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-primary"><?php echo $name ?></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+      </div>
+    </div>
+  </div>
+<?php
+
+}
+?>
+</div>
+
+<h1 class="text-center text-warning">List of all event co-head who lead a event of sport events</h1>
+<div class="row">
+
+<?php
+require './admin/connect.php';
+$query1 = "select * from participants where position = 'event-co-head' and type = 'Sport'";
+$exe1 = mysqli_query($dbc, $query1);
+while ($row1 = mysqli_fetch_array($exe1)) {
+  $p_id = $row1['eid'];
+  $name = $row1['name'];
+  $type = $row1['type'];
+  $position = $row1['position'];
+  $eventname = $row1['eventname'];
+?>
+  <div class="col-md-3 col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-warning"><?php echo $name ?></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+      </div>
+    </div>
+  </div>
+<?php
+
+}
+?>
+</div>
   <?php
   include 'usercomponents/footer.php'
   ?>

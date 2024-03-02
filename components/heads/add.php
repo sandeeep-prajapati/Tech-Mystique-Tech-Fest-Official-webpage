@@ -13,7 +13,7 @@ if (isset($_POST) & !empty($_POST)) {
     $position = ($_POST['position']);
     $eventname = ($_POST['eventname']);
 
-    $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`) VALUES (NULL, '$name', '$type', '$position','$eventname')";
+    $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`) VALUES (NULL, '$name', '$type', '$position', '$eventname');";
 
 
     $res = mysqli_query($dbc, $query);
