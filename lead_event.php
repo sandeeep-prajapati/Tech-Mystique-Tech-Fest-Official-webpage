@@ -15,35 +15,93 @@
   <div class="row p-2">
     <h2 class="text-success text center text-center">All event head Utkarsh Dubey contact info : +919580990883</h2>
   </div>
-  <h1 class="text-center">List of all Leaders who lead events</h1>
-
+  
   <div class="row">
-  <?php
-      require './admin/connect.php';
-      $query1 = "select * from participants where position = 'head'";
-      $exe1 = mysqli_query($dbc, $query1);
-      while ($row1 = mysqli_fetch_array($exe1)) {
-        $p_id = $row1['eid'];
-        $name = $row1['name'];
-        $type = $row1['type'];
-        $position = $row1['position'];
-        $eventname = $row1['eventname'];
+    <h2 class="text-center text-success" id = "technical">List of all Leaders who leads technical events</h2>
+    <?php
+    require './admin/connect.php';
+    $query1 = "select * from participants where position = 'head' and type = 'technical'";
+    $exe1 = mysqli_query($dbc, $query1);
+    while ($row1 = mysqli_fetch_array($exe1)) {
+      $p_id = $row1['eid'];
+      $name = $row1['name'];
+      $type = $row1['type'];
+      $position = $row1['position'];
+      $eventname = $row1['eventname'];
       ?>
       <div class="col-sm-6 col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title text-success"><?php echo $name ?></h5>
             <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
             <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
             <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
-            
+
           </div>
         </div>
       </div>
-      <?php
+    <?php
 
-      }
-      ?>
+    }
+    ?>
+
+
+
+<h2 class="text-center text-primary" id = "cultural">List of all Leaders who leads cultural events</h2>
+    <?php
+    require './admin/connect.php';
+    $query1 = "select * from participants where position = 'head' and type = 'cultural'";
+    $exe1 = mysqli_query($dbc, $query1);
+    while ($row1 = mysqli_fetch_array($exe1)) {
+      $p_id = $row1['eid'];
+      $name = $row1['name'];
+      $type = $row1['type'];
+      $position = $row1['position'];
+      $eventname = $row1['eventname'];
+    ?>
+      <div class="col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-primary"><?php echo $name ?></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+
+          </div>
+        </div>
+      </div>
+    <?php
+
+    }
+    ?>
+
+<h2 class="text-center text-warning" id="sport">List of all Leaders who leads Sport events</h2>
+    <?php
+    require './admin/connect.php';
+    $query1 = "select * from participants where position = 'head' and type = 'Sport'";
+    $exe1 = mysqli_query($dbc, $query1);
+    while ($row1 = mysqli_fetch_array($exe1)) {
+      $p_id = $row1['eid'];
+      $name = $row1['name'];
+      $type = $row1['type'];
+      $position = $row1['position'];
+      $eventname = $row1['eventname'];
+    ?>
+      <div class="col-sm-6 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-warning"><?php echo $name ?></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $type ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $position ?></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary pt-2"><?php echo $eventname ?></h6>
+
+          </div>
+        </div>
+      </div>
+    <?php
+
+    }
+    ?>
   </div>
 
   <?php
