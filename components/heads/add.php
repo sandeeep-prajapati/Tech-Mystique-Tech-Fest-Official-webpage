@@ -1,19 +1,3 @@
-<!-- $target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }
-} -->
-
 <?php
 require '../../admin/connect.php';
 session_start();
@@ -43,24 +27,25 @@ if (!empty($_POST)) {
             $insta = $_POST['insta'];
             $twitter = $_POST['twitter'];
             $linkedin = $_POST['linkedin'];
-
+            $edu = $_POST['edu'];
 
             // Prepare the SQL statement
-            $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`,`img`,`fb`,`insta`,`twitter`,`linkedin`) VALUES (NULL, ?, ?, ?, ?, ?,?,?,?,?)";
+            $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`, `img`, `fb`, `insta`, `twitter`, `linkedin`, `edu`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             // Initialize a prepared statement
             $stmt = mysqli_prepare($dbc, $query);
-            
+
             // Bind parameters
-            mysqli_stmt_bind_param($stmt, 'sssss', $name, $type, $position, $eventname, $target_file, $fb, $insta, $twitter, $linkedin);
+            mysqli_stmt_bind_param($stmt, 'ssssssssss', $name, $type, $position, $eventname, $target_file, $fb, $insta, $twitter, $linkedin, $edu);
             
             // Execute the statement
             $res = mysqli_stmt_execute($stmt);
             
             if ($res) {
                 header('location: ../../admin/participants.php');
+                exit(); // Terminates the script immediately after redirection
             } else {
-                $fmsg = "Failed to Insert data.";
+                $fmsg = "Failed to insert data.";
                 echo $fmsg;
             }
         } else {
@@ -202,7 +187,7 @@ if (!empty($_POST)) {
                 </div>
                 <div class="form-group">
                     <label>Position</label>
-                    <select name="position" onchange="go()" class="form-control">
+                    <select name="position" class="form-control">
                         <option value="" selected>Add type</option>
                         <option value="leader">Leader</option>
                         <option value="event-head">head(for a event)</option>
@@ -220,6 +205,8 @@ if (!empty($_POST)) {
                     <input type="text" class="form-control" name="twitter">
                     <label for="linkedin">Enter your Linkedin profile link</label>
                     <input type="text" class="form-control" name="linkedin">
+                    <label for="linkedin">Enter Educion level</label>
+                    <input type="text" class="form-control" name="edu">
                 </div>
                 <!-- <div class="form-group">
                     <label>Image </label>

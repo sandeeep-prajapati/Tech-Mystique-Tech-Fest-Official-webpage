@@ -1,3 +1,7 @@
+<?php
+require 'admin/connect.php';
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -35,14 +39,15 @@
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="img/logo.png" alt="">
+                    <!-- <img style="background:black;" src="img/logo.png" alt="" height="70px"> -->
+                    <h3 style="font-family:'Madimi One';">Parampara 2024</h3>
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li class="active"><a href="./about-us.html">About</a></li>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./about-us.html">About</a></li>
                         <li><a href="./speaker.html">Speakers</a>
                             <ul class="dropdown">
                                 <li><a href="#">Jayden</a></li>
@@ -56,7 +61,7 @@
                         <li><a href="./contact.html">Contacts</a></li>
                     </ul>
                 </nav>
-                <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a>
+                <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Participate</a>
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
@@ -69,7 +74,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>About Us</h2>
+                        <h2>About Parampara</h2>
                         <div class="bt-option">
                             <a href="#">Home</a>
                             <span>About</span>
@@ -87,16 +92,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Something About Us</h2>
-                        <p class="f-para">There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising.</p>
-                        <p>First I will explain what contextual advertising is. Contextual advertising means the advertising of products on a website according to the content the page is displaying. For example if the content of a website was information on a Ford truck then the advertisements would be for Ford trucks for sale, or Ford servicing etc. It picks up the words on the page and displays ads that are similar to those words. Then when someone either performs an action or clicks on your page you will get paid.</p>
+                        <h2>Parampara: Celebrating Tradition and Talent</h2>
+                        <p class="f-para">Get ready to immerse yourself in a whirlwind of culture, creativity, and camaraderie as we proudly announce the annual fest of our esteemed institution - Parampara! Scheduled from April 11th to April 13th, 2024, Parampara promises to be an unforgettable celebration of tradition and talent.</p>
+                        <p>Parampara isn't just another college fest; it's a vibrant platform where students from diverse backgrounds come together to showcase their skills, passion, and innovation. With a rich tapestry of events, performances, and competitions, Parampara encapsulates the essence of our cultural heritage while embracing the spirit of modernity.Throughout the three days, Parampara will offer a plethora of activities catering to every interest and talent. From electrifying dance performances that fuse classical elegance with contemporary flair to soul-stirring music concerts that resonate with the beats of tradition and innovation, there's something for everyone to enjoy.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-pic">
-                        <img src="img/about-us.jpg" alt="">
+                        <img src="./home/img/about-us.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -122,152 +127,97 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Who’s speaking</h2>
+                        <h2>Meet with core committee for events</h2>
                         <p>These are our communicators, you can see each person information</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-1.jpg">
+        <?php
+        $query= "SELECT * FROM `participants` where `position` = 'head' and `type` = 'Technical'";
+        $res=mysqli_query($dbc,$query);
+        $row=mysqli_num_rows($res);
+        if($row>0)
+        {
+        while($row=mysqli_fetch_array($res))
+        {                                          
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo str_replace('\\', '/', $row['img'])?>">
+        
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb'] ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta'] ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter'] ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin'] ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
+                <h5><?php echo $row['name'] ?></h5> 
+                <span><?php echo $row['type'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-2.jpg">
+        <?php
+
+        }}
+        ?>
+        <?php
+        $query= "SELECT * FROM `participants` where `position` = 'head' and `type` = 'Sport'";
+        $res=mysqli_query($dbc,$query);
+        $row=mysqli_num_rows($res);
+        if($row>0)
+        {
+        while($row=mysqli_fetch_array($res))
+        {                                          
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo str_replace('\\', '/', $row['img'])?>">
+        
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb'] ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta'] ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter'] ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin'] ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
+                <h5><?php echo $row['name'] ?></h5> 
+                <span><?php echo $row['type'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-3.jpg">
+        <?php
+
+        }}
+        ?>
+        <?php
+        $query= "SELECT * FROM `participants` where `position` = 'head' and `type` = 'cultural'";
+        $res=mysqli_query($dbc,$query);
+        $row=mysqli_num_rows($res);
+        if($row>0)
+        {
+        while($row=mysqli_fetch_array($res))
+        {                                          
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo str_replace('\\', '/', $row['img'])?>">
+        
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb'] ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta'] ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter'] ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin'] ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
+                <h5><?php echo $row['name'] ?></h5> 
+                <span><?php echo $row['type'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-4.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-5.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-6.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-7.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-8.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-9.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-10.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
+        <?php
+
+        }}
+        ?>
+        
     </section>
     <!-- Team Member Section End -->
 
@@ -324,7 +274,7 @@
     <!-- Story Section End -->
 
     <!-- Pricing Section Begin -->
-    <section class="pricing-section set-bg spad" data-setbg="img/pricing-bg.jpg">
+    <section class="pricing-section set-bg spad" data-setbg="./home/img/pricing-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -412,10 +362,10 @@
                                 <div class="testimonial-item">
                                     <div class="ti-author">
                                         <div class="quote-pic">
-                                            <img src="img/quote.png" alt="">
+                                            <img src="./home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="img/testimonial/testimonial-1.jpg" alt="">
+                                            <img src="./home/img/testimonial/testimonial-1.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
                                             <h5>Emma Sandoval</h5>
@@ -429,10 +379,10 @@
                                 <div class="testimonial-item">
                                     <div class="ti-author">
                                         <div class="quote-pic">
-                                            <img src="img/quote.png" alt="">
+                                            <img src="./home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="img/testimonial/testimonial-2.jpg" alt="">
+                                            <img src="./home/img/testimonial/testimonial-2.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
                                             <h5>John Smith</h5>
@@ -446,10 +396,10 @@
                                 <div class="testimonial-item">
                                     <div class="ti-author">
                                         <div class="quote-pic">
-                                            <img src="img/quote.png" alt="">
+                                            <img src="./home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="img/testimonial/testimonial-2.jpg" alt="">
+                                            <img src="./home/img/testimonial/testimonial-2.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
                                             <h5>John Smith</h5>
@@ -470,7 +420,7 @@
     <!-- Newslatter Section Begin -->
     <section class="newslatter-section about-newslatter">
         <div class="container">
-            <div class="newslatter-inner set-bg" data-setbg="img/newslatter-bg.jpg">
+            <div class="newslatter-inner set-bg" data-setbg="./home/img/newslatter-bg.jpg">
                 <div class="ni-text">
                     <h3>Subscribe Newsletter</h3>
                     <p>Subscribe to our newsletter and don’t miss anything</p>
@@ -530,32 +480,32 @@
             <div class="partner-logo owl-carousel">
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-1.png" alt="">
+                        <img src="./home/img/partner-logo/logo-1.png" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-2.png" alt="">
+                        <img src="./home/img/partner-logo/logo-2.png" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-3.png" alt="">
+                        <img src="./home/img/partner-logo/logo-3.png" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-4.png" alt="">
+                        <img src="./home/img/partner-logo/logo-4.png" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-5.png" alt="">
+                        <img src="./home/img/partner-logo/logo-5.png" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="img/partner-logo/logo-6.png" alt="">
+                        <img src="./home/img/partner-logo/logo-6.png" alt="">
                     </div>
                 </a>
             </div>
@@ -563,7 +513,7 @@
                 <div class="col-lg-12">
                     <div class="footer-text">
                         <div class="ft-logo">
-                            <a href="#" class="footer-logo"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="#" class="footer-logo"><img src="./home/img/footer-logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li><a href="#">Home</a></li>

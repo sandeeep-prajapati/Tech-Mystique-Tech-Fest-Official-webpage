@@ -1,13 +1,11 @@
 <?php
 require '../../admin/connect.php';
-
 session_start();
 
-if (!(isset($_SESSION['admin']))) {
+if (!isset($_SESSION['admin'])) {
     echo "Unauthorized Access";
     return;
 }
-
 $id = $_GET['id'];
 
 $SelSql = "SELECT * FROM `participants` WHERE eid=$id";
@@ -15,23 +13,41 @@ $res = mysqli_query($dbc, $SelSql);
 $r = mysqli_fetch_assoc($res);
 
 
-if (isset($_POST) & !empty($_POST)) {
-    $name = ($_POST['name']);
-    $type = ($_POST['type']);
-    $position = ($_POST['position']);
-    $eventname = ($_POST['eventname']);
+if (!empty($_POST)) {
+    $name = $_POST['name'];
+    $type = $_POST['type'];
+    $position = $_POST['position'];
+    $eventname = $_POST['eventname'];
+    $fb = $_POST['fb'];
+    $insta = $_POST['insta'];
+    $twitter = $_POST['twitter'];
+    $linkedin = $_POST['linkedin'];
+    $edu = $_POST['edu'];
 
+    // Prepare the SQL statement
+    $query = "UPDATE `participants` SET `name`=?, `type`=?, `position`=?, `eventname`=?, `fb`=?, `insta`=?, `twitter`=?, `linkedin`=?, `edu`=? WHERE `participants`.`eid`=?";
+            
+    // Initialize a prepared statement
+    $stmt = $dbc->prepare($query);
 
-    $query = "UPDATE `participants` SET `name`='$name', `type`='$type', `position`='$position', `eventname` = '$eventname' WHERE eid='$id'";
+    // Bind parameters
+    $stmt->bind_param("sssssssssi", $name, $type, $position, $eventname, $fb, $insta, $twitter, $linkedin, $edu, $id);
 
-    $res = mysqli_query($dbc, $query);
+    // Execute the statement
+    $res = $stmt->execute();
+            
     if ($res) {
         header('location: ../../admin/participants.php');
+        exit(); // Terminates the script immediately after redirection
     } else {
-        $fmsg = "Failed to Insert data.";
+        $fmsg = "Failed to update data.";
+        echo $fmsg;
     }
+} else {
+    echo "No data received.";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,7 +152,38 @@ if (isset($_POST) & !empty($_POST)) {
             <h2 style="padding-top: 120px; margin-left: 20px">Update Member of Participants</h2>
 
 
-            <form method="post" style="margin-left: 20px" enctype="multipart/form-data">
+            <!-- <form method="post" style="margin-left: 20px" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" value="" required />
+                </div>
+                <div class="form-group">
+                    <label>Category: </label>
+                    <select name="type" class="form-control">
+                        <option value="" class="form-control">Add type</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Technical">Technical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" class="form-control" name="eventname" value="" required />
+                </div>
+                <div class="form-group">
+                    <label>Position</label>
+                    <select name="position" class="form-control">
+                    <option value="">Add type</option>
+                        <option value="leader">Leader</option>
+                        <option value="event-head">head(for a event)</option>
+                        <option value="event-co-head">co-head(for a event)</option>
+                        <option value="Co-ordinator">Co-ordinator</option>
+                        <option value="Core Coordinator">Core Coordinator</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Add Event" />
+            </form> -->
+            <form method="post" style="margin-left: 20px">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="name" value="<?php echo $r['name']; ?>" required />
@@ -157,15 +204,29 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Position</label>
                     <select name="position" class="form-control">
-                    <option value="">Add type</option>
+                        <option value="<?php echo $r['eventname']; ?>" selected>Add type</option>
                         <option value="leader">Leader</option>
                         <option value="event-head">head(for a event)</option>
                         <option value="event-co-head">co-head(for a event)</option>
                         <option value="Co-ordinator">Co-ordinator</option>
                         <option value="Core Coordinator">Core Coordinator</option>
                     </select>
+                    <label for="fb">Enter your facebook profile link</label>
+                    <input type="text" value="<?php echo $r['fb']; ?>" class="form-control" name="fb">
+                    <label for="profile img">Enter your Instagram profile link</label>
+                    <input type="text" class="form-control" value="<?php echo $r['insta']; ?>" name="insta">
+                    <label for="twitter link">Enter your Twitter profile link</label>
+                    <input type="text" class="form-control" value="<?php echo $r['twitter']; ?>" name="twitter">
+                    <label for="linkedin">Enter your Linkedin profile link</label>
+                    <input type="text" class="form-control" value="<?php echo $r['linkedin']; ?>" name="linkedin">
+                    <label for="linkedin">Enter Educion level</label>
+                    <input type="text" class="form-control" value="<?php echo $r['edu']; ?>" name="edu">
                 </div>
-                <input type="submit" class="btn btn-primary" value="Add Event" />
+                <!-- <div class="form-group">
+                    <label>Image </label>
+                    <input type="url" class="form-control" name="img" value="" />
+                </div> -->
+                <input type="submit" class="btn btn-primary" value="Update Event" />
             </form>
         </div>
 
