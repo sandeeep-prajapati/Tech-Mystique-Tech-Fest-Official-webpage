@@ -1,28 +1,76 @@
+<!-- $target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+} -->
+
 <?php
 require '../../admin/connect.php';
 session_start();
 
-if (!(isset($_SESSION['admin']))) {
+if (!isset($_SESSION['admin'])) {
     echo "Unauthorized Access";
     return;
 }
 
-if (isset($_POST) & !empty($_POST)) {
-    $name = ($_POST['name']);
-    $type = ($_POST['type']);
-    $position = ($_POST['position']);
-    $eventname = ($_POST['eventname']);
+if (!empty($_POST)) {
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`) VALUES (NULL, '$name', '$type', '$position', '$eventname');";
+    // Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if($check !== false) {
+        // Proceed with file upload
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // File uploaded successfully, continue with database insertion
+            $name = $_POST['name'];
+            $type = $_POST['type'];
+            $position = $_POST['position'];
+            $eventname = $_POST['eventname'];
+            $fb = $_POST['fb'];
+            $insta = $_POST['insta'];
+            $twitter = $_POST['twitter'];
+            $linkedin = $_POST['linkedin'];
 
 
-    $res = mysqli_query($dbc, $query);
-    if ($res) {
-        header('location: ../../admin/participants.php');
+            // Prepare the SQL statement
+            $query = "INSERT INTO `participants` (`eid`, `name`, `type`, `position`, `eventname`,`img`,`fb`,`insta`,`twitter`,`linkedin`) VALUES (NULL, ?, ?, ?, ?, ?,?,?,?,?)";
+            
+            // Initialize a prepared statement
+            $stmt = mysqli_prepare($dbc, $query);
+            
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt, 'sssss', $name, $type, $position, $eventname, $target_file, $fb, $insta, $twitter, $linkedin);
+            
+            // Execute the statement
+            $res = mysqli_stmt_execute($stmt);
+            
+            if ($res) {
+                header('location: ../../admin/participants.php');
+            } else {
+                $fmsg = "Failed to Insert data.";
+                echo $fmsg;
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
     } else {
-        $fmsg = "Failed to Insert data.";
-        print_r($res);
+        echo "File is not an image.";
     }
+} else {
+    echo "No data received.";
 }
 ?>
 
@@ -47,6 +95,11 @@ if (isset($_POST) & !empty($_POST)) {
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../admin/home.css">
+    <script>
+            function go() {
+                alert("onchange");
+            }
+    </script>
 </head>
 
 <body>
@@ -149,13 +202,24 @@ if (isset($_POST) & !empty($_POST)) {
                 </div>
                 <div class="form-group">
                     <label>Position</label>
-                    <select name="position" class="form-control">
-                        <option value="">Add type</option>
-                        <option value="head">Leader</option>
+                    <select name="position" onchange="go()" class="form-control">
+                        <option value="" selected>Add type</option>
+                        <option value="leader">Leader</option>
                         <option value="event-head">head(for a event)</option>
                         <option value="event-co-head">co-head(for a event)</option>
-                        <option value="teacher">Teacher</option>
+                        <option value="Co-ordinator">Co-ordinator</option>
+                        <option value="Core Coordinator">Core Coordinator</option>
                     </select>
+                    <label for="Profile image"> Enter your profile image</label>
+                    <input type="file" class="form-control" name ="image">
+                    <label for="fb">Enter your facebook profile link</label>
+                    <input type="text" class="form-control" name="fb">
+                    <label for="profile img">Enter your Instagram profile link</label>
+                    <input type="text" class="form-control" name="insta">
+                    <label for="twitter link">Enter your Twitter profile link</label>
+                    <input type="text" class="form-control" name="twitter">
+                    <label for="linkedin">Enter your Linkedin profile link</label>
+                    <input type="text" class="form-control" name="linkedin">
                 </div>
                 <!-- <div class="form-group">
                     <label>Image </label>
@@ -166,6 +230,7 @@ if (isset($_POST) & !empty($_POST)) {
         </div>
 
         <?php include_once('../../templates/footer.php') ?>
+
 
 </body>
 

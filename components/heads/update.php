@@ -157,11 +157,12 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Position</label>
                     <select name="position" class="form-control">
-                        <option value="<?php echo $r['position']; ?>">Add type</option>
-                        <option value="head">Leader</option>
+                    <option value="">Add type</option>
+                        <option value="leader">Leader</option>
                         <option value="event-head">head(for a event)</option>
                         <option value="event-co-head">co-head(for a event)</option>
-                        <option value="teacher">Teacher</option>
+                        <option value="Co-ordinator">Co-ordinator</option>
+                        <option value="Core Coordinator">Core Coordinator</option>
                     </select>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Add Event" />

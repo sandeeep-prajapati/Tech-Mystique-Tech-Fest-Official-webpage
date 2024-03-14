@@ -117,7 +117,7 @@ if (isset($_POST) & !empty($_POST)) {
                 <img src="https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg"
                     alt="profile">
                 <span class="admin_name">
-                    <?php echo $_SESSION["Aname"] ?>
+                    <?php echo $_SESSION["email"] ?>
                 </span>
                 <i class='bx bx-chevron-down'></i>
             </div>

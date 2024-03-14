@@ -22,53 +22,13 @@ if (!isset($_SESSION['admin'])) {
 
         <?php
         include_once('../templates/sidebar.php');
-        function eventName($eid)
-        {
-            if ($eid == 10)
-                return "IPL Auction";
-            if ($eid == 11)
-                return "Mathomania";
-            if ($eid == 12)
-                return "Python Pro's";
-            if ($eid == 13)
-                return "tressure Hunt";
-            if ($eid == 14)
-                return "C noobies";
-        }
+        
         ?>
 
         <div class="container" style="padding-top: 150px; padding-left: 50px">
             <div class="row">
-                <div class="col-lg-8">
-                    <!-- <form method="post" action="participants.php">
-                    <div class="mb-3">
-                        <select class="form-select" aria-label="Select Event" name="event">
-                            <option selected>Open this select menu</option>
-                            <option value="10">IPL Auction</option>
-                            <option value="11">Mathomania</option>
-                            <option value="12">Python Pro's</option>
-                            <option value="13">Tressure Hunt</option>
-                            <option value="14">C noobies</option>
-                            <option value="Gaming">Gaming</option>
-                            <option value="Math O Mania">Math O Mania</option>
-                            <option value="Fandom Quiz">Fandom Quiz</option>
-                            <option value="General Quiz">General Quiz</option>
-                            <option value="OLPC">OLPC</option>
-                            <option value="OSPC">OSPC</option>
-                            <option value="Code Marathon">Code Marathon</option>
-                            <option value="Reverse Coding">Reverse Coding</option>
-                            <option value="Debugging">Debugging</option>
-                            <option value="Street Coding">Street Coding</option>
-                            <option value="Blind Coding">Blind Coding</option>
-                            <option value="Decoding">Decoding</option>
-                            <option value="Database">Database</option>
-                            <option value="Tech Quiz">Tech Quiz</option>
-                            <option value="Coffee with Java">Coffee with Java</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form> -->
-
+                <div class="col-lg-12">
+                    
                     <?php
                     require 'connect.php';
 
@@ -130,21 +90,22 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $position . "</td>
                                     <td>" . $eventname . "</td>
                                     <td>
-						<a href='../components/heads/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
+						            <a href='../components/heads/update.php?id=".$p_id."'>
+                                    <button type='button' class='btn btn-info'>Edit</button>
+                                    </a>
 
-            <a href='../components/heads/delete.php?id=$p_id'>
-                <button type='button' class='btn btn-danger btn-xs'>Delete</button> </a>
+                                    <a href='../components/heads/delete.php?id=".$p_id."'>
+                                    <button type='button' class='btn btn-danger btn-xs'>Delete</button> 
+                                    </a>
+                                    </td>
 
-            </td>
-
-            </tr>";
+                                </tr>";
                             }
 
                             ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="col-lg-3"></div>
             </div>
         </div>
         </section>

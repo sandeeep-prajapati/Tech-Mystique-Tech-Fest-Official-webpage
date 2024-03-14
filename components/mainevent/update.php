@@ -1,4 +1,5 @@
 <?php
+
 require '../../admin/connect.php';
 
 session_start();
@@ -10,28 +11,32 @@ if (!(isset($_SESSION['admin']))) {
 
 $id = $_GET['id'];
 
-$SelSql = "SELECT * FROM `main_events` WHERE eid=$id";
-$res = mysqli_query($dbc, $SelSql);
-$r = mysqli_fetch_assoc($res);
+$SelSql = "SELECT * FROM `main_events` WHERE eid=?";
+$stmt = $dbc->prepare($SelSql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$res = $stmt->get_result();
+$r = $res->fetch_assoc();
 
+if (isset($_POST) && !empty($_POST)) {
+    $name = $_POST['name'];
+    $description = $_POST['desc'];
+    $category = $_POST['type'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    
+    $query = "UPDATE `main_events` SET `name`=?, `description`=?, `type`=?, `date`=?, `time`=? WHERE `main_events`.`eid`=?";
+    $stmt = $dbc->prepare($query);
+    $stmt->bind_param("sssssi", $name, $description, $category, $date, $time, $id);
+    $stmt->execute();
 
-if (isset($_POST) & !empty($_POST)) {
-    $name = ($_POST['name']);
-    $description = ($_POST['desc']);
-    $category = ($_POST['type']);
-    $date = ($_POST['date']);
-    $time = ($_POST['time']);
-
-
-    $query = "UPDATE `main_events` SET name='$name', description='$description', type='$category', date='$date', time='$time' WHERE eid='$id'";
-
-    $res = mysqli_query($dbc, $query);
-    if ($res) {
+    if ($stmt->affected_rows > 0) {
         header('location: ../../admin/events.php');
     } else {
-        $fmsg = "Failed to Insert data.";
+        $fmsg = "Failed to update data.";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +126,7 @@ if (isset($_POST) & !empty($_POST)) {
                 <img src="https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg"
                     alt="profile">
                 <span class="admin_name">
-                    <?php echo $_SESSION["Aname"] ?>
+                    <?php echo $_SESSION["email"] ?>
                 </span>
                 <i class='bx bx-chevron-down'></i>
             </div>
