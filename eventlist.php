@@ -1,20 +1,47 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parampara | all events</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="description" content="Manup Template">
+    <meta name="keywords" content="Manup, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manup | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="home/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="home/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="home/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/style.css" type="text/css">
 </head>
 
 <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <?php
+    require 'usercomponents\mainnav.php';
+    ?>
+    <!-- Header End -->
   <?php
   require 'usercomponents/navbar.php';
   ?>
   <p class="text-danger text-center">date and time are not fixed yet, all there date and time are dummy yet</p>
   <h1 class="text-center text-success" id="technical">All event list releted to technical</h1>
-  <div class="container-fluid">
+
     <div class="row">
       <?php
       require './admin/connect.php';
@@ -44,8 +71,6 @@
       }
       ?>
     </div>
-  </div>
-
   <h1 class="text-center text-primary" id="cultural">All event list releted to cultural</h1>
 
   
@@ -109,10 +134,19 @@
     }
     ?>
   </div>
+  
   <?php
-  include "usercomponents/footer.php";
-  ?>
+    require 'usercomponents\mainFooter.php';
+
+    ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="home/js/jquery-3.3.1.min.js"></script>
+  <script src="home/js/bootstrap.min.js"></script>
+  <script src="home/js/jquery.magnific-popup.min.js"></script>
+  <script src="home/js/jquery.countdown.min.js"></script>
+  <script src="home/js/jquery.slicknav.js"></script>
+  <script src="home/js/owl.carousel.min.js"></script>
+  <script src="home/js/main.js"></script>
 </body>
 
 </html>

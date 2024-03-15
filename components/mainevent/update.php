@@ -1,10 +1,11 @@
 <?php
 
+// Update all records
 require '../../admin/connect.php';
 
 session_start();
 
-if (!(isset($_SESSION['admin']))) {
+if (!isset($_SESSION['admin'])) {
     echo "Unauthorized Access";
     return;
 }
@@ -19,24 +20,27 @@ $res = $stmt->get_result();
 $r = $res->fetch_assoc();
 
 if (isset($_POST) && !empty($_POST)) {
-    $name = $_POST['name'];
-    $description = $_POST['desc'];
-    $category = $_POST['type'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    
-    $query = "UPDATE `main_events` SET `name`=?, `description`=?, `type`=?, `date`=?, `time`=? WHERE `main_events`.`eid`=?";
+    $name = mysqli_real_escape_string($dbc, $_POST['name']);
+    $description = mysqli_real_escape_string($dbc, $_POST['desc']);
+    $category = mysqli_real_escape_string($dbc, $_POST['type']);
+    $date = mysqli_real_escape_string($dbc, $_POST['date']);
+    $time = mysqli_real_escape_string($dbc, $_POST['time']);
+    $winning = mysqli_real_escape_string($dbc, $_POST['winning']);
+    $runnerup = mysqli_real_escape_string($dbc, $_POST['runnerup']);
+    $participation = mysqli_real_escape_string($dbc, $_POST['participation']);
+
+    $query = "UPDATE `main_events` SET `name`=?, `description`=?, `type`=?, `date`=?, `time`=?, `winner`=?, `runnerup`=?, `registrationfee`=? WHERE `eid`=?";
     $stmt = $dbc->prepare($query);
-    $stmt->bind_param("sssssi", $name, $description, $category, $date, $time, $id);
+    $stmt->bind_param("ssssssssi", $name, $description, $category, $date, $time, $winning, $runnerup, $participation, $id);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
         header('location: ../../admin/events.php');
+        exit(); // Stop execution after redirection
     } else {
         $fmsg = "Failed to update data.";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -167,8 +171,18 @@ if (isset($_POST) && !empty($_POST)) {
                     <label>Time</label>
                     <input type="time" class="form-control" name="time" value="<?php echo $r['time']; ?>" />
                 </div>
-                
-
+                <div class="form-group">
+                    <label>Winner prize</label>
+                    <input type="number" class="form-control" name="winning" value="<?php echo $r['winner']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label>Runner Up prize</label>
+                    <input type="number" class="form-control" name="runnerup" value="<?php echo $r['runnerup']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label>Participation fee</label>
+                    <input type="text" class="form-control" name="participation" value="<?php echo $r['registrationfee']; ?>" />
+                </div>
                 <input type="submit" class="btn btn-primary" value="Update" />
             </form>
         </div>

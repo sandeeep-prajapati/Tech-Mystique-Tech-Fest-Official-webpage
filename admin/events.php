@@ -70,6 +70,9 @@ if (!isset($_SESSION['admin'])) {
                 <th scope="col">Type</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Runner Up</th>
+                <th scope="col">Participation fee</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -85,6 +88,10 @@ if (!isset($_SESSION['admin'])) {
                 $type = $row1['type'];
                 $date = $row1['date'];
                 $time = $row1['time'];
+                $winner = $row1['winner'];
+                $runnerup = $row1['runnerup'];
+                $registrationfee = $row1['registrationfee'];
+                
                 echo "
                                 <tr>
                                     <td>" . $p_id . "</td>
@@ -93,9 +100,13 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $type . "</td>
                                     <td>" . $date . "</td>
                                     <td>" . $time . "</td>
+                                    <td>" . $winner . "</td>
+                                    <td>" . $runnerup . "</td>
+                                    <td>" . $registrationfee . "</td>
                                     <td>
 						<a href='../components/mainevent/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
-
+                                    </td>
+                                    <td>
             <a href='../components/mainevent/delete.php?id=$p_id'>
                 <button type='button' class='btn btn-danger btn-xs'>Delete</button> </a>
 
@@ -117,8 +128,10 @@ if (!isset($_SESSION['admin'])) {
                 <th scope="col">Type</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
-                <th></th>
-                <th></th>
+                <th scope="col">Winner</th>
+                <th scope="col">Runner Up</th>
+                <th scope="col">Participation fee</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -132,6 +145,10 @@ if (!isset($_SESSION['admin'])) {
                 $type = $row1['type'];
                 $date = $row1['date'];
                 $time = $row1['time'];
+                $winner = $row1['winner'];
+                $runnerup = $row1['runnerup'];
+                $registrationfee = $row1['registrationfee'];
+
                 $img = $row1['image'];
                 echo "
                                 <tr>
@@ -141,6 +158,9 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $type . "</td>
                                     <td>" . $date . "</td>
                                     <td>" . $time . "</td>
+                                    <td>" . $winner . "</td>
+                                    <td>" . $runnerup . "</td>
+                                    <td>" . $registrationfee . "</td>
                                     <td>
 						<a href='../components/event/update.php?id=$p_id'><button type='button' class='btn btn-info'>Edit</button></a>
 

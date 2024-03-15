@@ -6,7 +6,7 @@ if(!$conn){
 }
 else{
 
-
+    $c=0;
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Parampara 2K24</title>
+
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
     
@@ -48,41 +49,14 @@ else{
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
+    
         <div class="loader"></div>
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container">
-            <div class="logo">
-                <a href="./index.html">
-                    <!-- <img style="background:black;" src="img/logo.png" alt="" height="70px"> -->
-                    <h3 style="font-family:'Madimi One';">Parampara 2024</h3>
-                </a>
-            </div>
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
-                        <li><a href="./speaker.html">Speakers</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Jayden</a></li>
-                                <li><a href="#">Sara</a></li>
-                                <li><a href="#">Emma</a></li>
-                                <li><a href="#">Harriet</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./schedule.html">Schedule</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
-                    </ul>
-                </nav>
-                <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Participate</a>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
+    <?php
+    require 'usercomponents\mainnav.php';
+    ?>
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
@@ -93,7 +67,7 @@ else{
                     <div class="hero-text">
                         <!-- <span>11 to 13 April 2K24, ITM, GIDA, Gorakhpur</span> -->
                         <h2>Get ready on<br /> 11<sup>th</sup> April</h2>
-                        <a href="#" class="primary-btn">Participate</a>
+                        <a href="register.php" class="primary-btn">Join Us</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -150,17 +124,17 @@ else{
                 </div>
                 <div class="col-lg-6">
                     <div class="ha-text">
-                        <h2>Convener <sub>Parampara 2K24</sub></h2>
+                        <h2>Welcome to Parampara 2K24</h2>
                         <p>
-                            All the Parampara events and Competitions done under the <b>Mr. Manoj Mishra</b> Sir. He is lead the whole parampara event.
+                            Welcome one and all to Parampara, our college’s beacon of tradition and innovation! As the Convener of this grand fest, it is my pleasure to extend a heartfelt invitation to immerse yourself in the rich tapestry of our cultural heritage and contemporary talents.
                         </p>
-                        <ul>
-                            <li><span class="icon_check"></span> All event heads report him</li>
-                            <li><span class="icon_check"></span> All sponsorship comes under him</li>
-                            <li><span class="icon_check"></span> All Parampara events get verified through him</li>
-                            <li><span class="icon_check"></span> All decipline member came under him</li>
-                        </ul>
-                        <!-- <a href="#" class="ha-btn">Discover Now</a> -->
+                        <p>
+                            Parampara stands as a testament to our enduring customs and the new paths we forge. This year, we bring you a plethora of events that celebrate both our roots and our wings—from classical art forms to modern-day workshops, engaging debates to enthralling performances.
+                        </p>
+                        <p>
+                            In my role as the Convener, I am committed to orchestrating an event that honors our past while embracing the future. It is my duty to ensure that Parampara not only entertains but also inspires, leaving a lasting impression on all who join us.
+                        </p>
+                        <a href="about-us.php" class="ha-btn">Discover Now</a>
                     </div>
                 </div>
             </div>
@@ -169,28 +143,118 @@ else{
     <!-- Home About Section End -->
 
     <!-- Team Member Section Begin -->
-    <section class="team-member-section">
+    <!-- <section class="team-member-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Our Event Leaders</h2>
-                        <p>There are 3 type of events in Parampara. Technical, Cultural, & Sport.</p>
+                        <h2>Our Coordinators</h2>
+                        <p>Respect the Guidence and Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- Home About Section Begin -->
+    <!-- <section class="home-about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ha-text">
+                        <h2>Cultural Event Coordinator - Parampara</h2>
+                        <p>
+                            Embark on a journey through tradition and modernity with Parampara, our college fest that celebrates the rich tapestry of our heritage. As the Cultural Event Coordinator, you are the custodian of our legacy, orchestrating a symphony of events that resonate with the timeless rhythms of our culture.
+                        </p>
+                        <p>
+                        Key Responsibilities:
+                        
+                        </p>
+                        <ul type="bullets">
+                            <li style="list-style-type:bullets;"> Crafting a vibrant mosaic of cultural showcases that honor our past while embracing the future.</li>
+                            <li style="list-style-type:bullets;"> Fostering collaborations that bridge the gap between classical and contemporary art forms.</li>
+                            <li style="list-style-type:bullets;"> Scheduling a panorama of events that cater to an array of artistic tastes and preferences.</li>
+                            <li style="list-style-type:bullets;"> Managing the seamless execution of events, ensuring each moment is etched in the annals of our history.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ha-pic">
+                        <img src="image/teachers/head.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
+    </section> -->
+    <!-- Home About Section End -->
+
+    <!-- Home About Section Begin -->
+    <!-- <section class="home-about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ha-pic">
+                        <img src="image/teachers/head.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ha-text">
+                        <h2>Technical Event Coordinator - Parampara</h2>
+                        <p>
+                        Dive into the confluence of heritage and innovation at Parampara, where we celebrate the legacy of the past while forging the future. As the Technical Event Coordinator, you are the catalyst for change, the pioneer leading our quest for knowledge and technological prowess.
+                        </p>
+                        <p>
+                        We Are Looking For:
+                        
+                        </p>
+                        <ul type="bullets">
+                            <li style="list-style-type:bullets;"> A visionary with a deep respect for our roots and an eye on the horizon of technology.</li>
+                            <li style="list-style-type:bullets;"> Proven experience in orchestrating technical events that captivate and educate.</li>
+                            <li style="list-style-type:bullets;"> The ability to create a platform where ancient practices meet modern tech solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Home About Section End -->
+
+    <!-- Home About Section Begin -->
+    <!-- <section class="home-about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ha-text">
+                        <h2>Welcome to Parampara 2K24</h2>
+                        <p>
+                            Welcome one and all to Parampara, our college’s beacon of tradition and innovation! As the Convener of this grand fest, it is my pleasure to extend a heartfelt invitation to immerse yourself in the rich tapestry of our cultural heritage and contemporary talents.
+                        </p>
+                        <p>
+                            Parampara stands as a testament to our enduring customs and the new paths we forge. This year, we bring you a plethora of events that celebrate both our roots and our wings—from classical art forms to modern-day workshops, engaging debates to enthralling performances.
+                        </p>
+                        <p>
+                            In my role as the Convener, I am committed to orchestrating an event that honors our past while embracing the future. It is my duty to ensure that Parampara not only entertains but also inspires, leaving a lasting impression on all who join us.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ha-pic">
+                        <img src="image/teachers/head.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Home About Section End -->
 
         <!-- Technical -->
         <?php
-            $query="select * from participants where position = 'Leader' and type = 'Technical'";
+            $query="select * from participants where position = 'Leader' and type = 'Technical';";
             $res=mysqli_query($conn,$query);
             $row=mysqli_num_rows($res);
             if($row>0)
             {
                 while($row=mysqli_fetch_array($res))
                 {
-                           
         ?>
         <div class="member-item set-bg" data-setbg="<?php echo $row['img']; ?>">
             <div class="mi-social">
@@ -206,7 +270,7 @@ else{
                 <span><?php echo $row['type'] ?> <?php echo $row['position'] ?></span>
             </div>
         </div>
-        <?php 
+        <?php
                 }
             }
         ?>
@@ -308,18 +372,6 @@ else{
                                     <p>Cultural heads for all events</p>
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
-                                    <h5>Day 4</h5>
-                                    <p>May 07, 2019</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">
-                                    <h5>Day 5</h5>
-                                    <p>May 08, 2019</p>
-                                </a>
-                            </li> -->
                         </ul><!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -346,15 +398,15 @@ else{
                                                     <h4><?php echo $row['name'] ?></h4>
                                                     <ul>
                                                         <!-- <li><i class="fa fa-graduation-cap"></i> John Smith</li> -->
-                                                        <li><i class="fa fa-instagram"></i> john@Colorlib.com
+                                                        <li><i class="fa fa-instagram"></i> @<?php echo $row['insta'] ?>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    <li><i class="fa fa-clock-o"></i> 09:00 am - 4:00 PM</li>
+                                                    <li><i class="fa fa-map-marker"></i> ITM GIDA, Gorakhpur
                                                     </li>
                                                 </ul>
                                             </div>
@@ -390,16 +442,16 @@ else{
                                                 <div class="sc-text">
                                                     <h4><?php echo $row['name'] ?></h4>
                                                     <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        <!-- <li><i class="fa fa-user"></i> John Smith</li> -->
+                                                        <li><i class="fa fa-instagram"></i> @<?php echo $row['insta'] ?>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    <li><i class="fa fa-clock-o"></i> 09:00 am - 4:00 PM</li>
+                                                    <li><i class="fa fa-map-marker"></i> ITM GIDA, Gorakhpur
                                                     </li>
                                                 </ul>
                                             </div>
@@ -436,16 +488,16 @@ else{
                                                 <div class="sc-text">
                                                     <h4><?php echo $row['name'] ?></h4>
                                                     <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        <!-- <li><i class="fa fa-user"></i> John Smith</li> -->
+                                                        <li><i class="fa fa-instagram"></i> @<?php echo $row['insta'] ?>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    <li><i class="fa fa-clock-o"></i> 09:00 am - 4:00 PM</li>
+                                                    <li><i class="fa fa-map-marker"></i> ITM GIDA, Gorakhpur
                                                     </li>
                                                 </ul>
                                             </div>
@@ -458,234 +510,6 @@ else{
                         }
                             ?>
                             </div>
-                            <!-- <div class="tab-pane" id="tabs-4" role="tabpanel">
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="home/img/schedule/schedule-1.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Dealing with Expert People</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="home/img/schedule/schedule-2.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>V7 Digital Photo Printing</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-3.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Beyond The Naked Eye</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-4.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Influencing The Influencer</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-5" role="tabpanel">
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-1.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Dealing with Too Difficult People</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-2.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>V7 Digital Photo Printing</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-3.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Beyond The Naked Eye</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="st-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="sc-pic">
-                                                    <img src="img/schedule/schedule-4.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="sc-text">
-                                                    <h4>Influencing The Influencer</h4>
-                                                    <ul>
-                                                        <li><i class="fa fa-user"></i> John Smith</li>
-                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <ul class="sc-widget">
-                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
-                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -700,8 +524,8 @@ else{
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Event Details</h2>
-                        <p>Select Your plan</p>
+                        <h2>Parampara Events</h2>
+                        <p>Viewing Total Prozepool</p>
                     </div>
                 </div>
             </div>
@@ -710,10 +534,10 @@ else{
                     <div class="price-item">
                         <h4>Culturalal Events</h4>
                         <div class="pi-price">
-                            <h2><span>₹</span>600/-</h2>
+                            <h2><span>₹</span>66600/-</h2>
                         </div>
                         <?php
-                            $query="select name from main_events where type = 'Cultural'";
+                            $query="select name from main_events where type = 'Cultural' limit 10 offset 10";
                             $res=mysqli_query($conn,$query);
                             $row=mysqli_num_rows($res);
                             if($row>0)
@@ -733,7 +557,7 @@ else{
                         <?php
                             }
                         ?>
-                        <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
+                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -743,10 +567,10 @@ else{
                         </div>
                         <h4>Technical Events</h4>
                         <div class="pi-price">
-                            <h2><span>₹</span>600/-</h2>
+                            <h2><span>₹</span>32600/-</h2>
                         </div>
                         <?php
-                            $query="select name from main_events where type = 'Technical'";
+                            $query="select name from main_events where type = 'Technical' limit 10 offset 10";
                             $res=mysqli_query($conn,$query);
                             $row=mysqli_num_rows($res);
                             if($row>0)
@@ -766,17 +590,17 @@ else{
                         <?php
                             }
                         ?>
-                        <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
+                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="price-item">
                         <h4>Sport Events</h4>
                         <div class="pi-price">
-                            <h2><span>₹</span>600/-</h2>
+                            <h2><span>₹</span>96000/-</h2>
                         </div>
                         <?php
-                            $query="select name from main_events where type = 'Sport'";
+                            $query="select name from main_events where type = 'Sport' limit 10";
                             $res=mysqli_query($conn,$query);
                             $row=mysqli_num_rows($res);
                             if($row>0)
@@ -796,7 +620,7 @@ else{
                         <?php
                             }
                         ?>
-                        <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
+                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
                     </div>
                 </div>
             </div>
@@ -817,27 +641,27 @@ else{
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="latest-item set-bg large-item" data-setbg="image/cardimage/square.jpg">
-                        <div class="li-tag">Marketing</div>
+                    <div class="latest-item set-bg large-item" data-setbg="home/img/blog/latest-b/latest-1.jpeg">
+                        <div class="li-tag">Inauguration</div>
                         <div class="li-text">
-                            <h4><a href="./blog-details.html">grow up your hidden talent</a></h4>
-                            <span><i class="fa fa-clock-o"></i> 11th April, 2024</span>
+                            <h4><a href="./blog-details.php">Improve You Business Cards And Enchan Your Sales</a></h4>
+                            <span><i class="fa fa-clock-o"></i> 19th May, 2019</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="latest-item set-bg" data-setbg="image/cardimage/long1.jpg">
-                        <div class="li-tag">Experience</div>
+                    <div class="latest-item set-bg" data-setbg="home/img/blog/latest-b/latest-2.jpeg">
+                        <div class="li-tag">Launching</div>
                         <div class="li-text">
-                            <h5><a href="./blog-details.html">Come on join us, here you can win prizes for your talent</a></h5>
-                            <span><i class="fa fa-clock-o"></i> 11th April, 2024</span>
+                            <h5><a href="./blog-details.php">All users on MySpace will know that there are millions of people out there.</a></h5>
+                            <span><i class="fa fa-clock-o"></i> 19th May, 2019</span>
                         </div>
                     </div>
-                    <div class="latest-item set-bg" data-setbg="image/cardimage/long2.jpg">
-                        <div class="li-tag">Marketing</div>
+                    <div class="latest-item set-bg" data-setbg="home/img/blog/latest-b/latest-3.jpeg">
+                        <div class="li-tag">Winning</div>
                         <div class="li-text">
-                            <h5><a href="./blog-details.html">Thousands of external participants join parampara</a></h5>
-                            <span><i class="fa fa-clock-o"></i> 11th April, 2024</span>
+                            <h5><a href="./blog-details.php">A Pocket PC is a handheld computer, which features many of the same capabilities.</a></h5>
+                            <span><i class="fa fa-clock-o"></i> 19th May, 2019</span>
                         </div>
                     </div>
                 </div>
@@ -906,68 +730,10 @@ else{
     <!-- Contact Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="partner-logo owl-carousel">
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-1.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-2.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-3.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-4.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-5.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="pl-table">
-                    <div class="pl-tablecell">
-                        <img src="home/img/partner-logo/logo-6.png" alt="">
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-text">
-                        <div class="ft-logo">
-                            <a href="#" class="footer-logo"><h4 style="font-family:'Madimi One';color:white;">Parampara 2024</h4></a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Speakers</a></li>
-                            <li><a href="#">Schedule</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                        <div class="copyright-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="ft-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    require 'usercomponents\mainFooter.php';
+
+    ?>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

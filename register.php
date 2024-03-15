@@ -57,8 +57,18 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Generate your Token here</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="home/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="home/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="home/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="home/css/style.css" type="text/css">
 </head>
 <body>
+    <?php
+    require 'usercomponents\mainnav.php';
+    ?>
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-lg-3"></div>
@@ -80,7 +90,18 @@ else {
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<?php
+    require 'usercomponents\mainFooter.php';
+
+    ?>
 </body>
+<script src="home/js/jquery-3.3.1.min.js"></script>
+    <script src="home/js/bootstrap.min.js"></script>
+    <script src="home/js/jquery.magnific-popup.min.js"></script>
+    <script src="home/js/jquery.countdown.min.js"></script>
+    <script src="home/js/jquery.slicknav.js"></script>
+    <script src="home/js/owl.carousel.min.js"></script>
+    <script src="home/js/main.js"></script>
 </html>
 
 <?php

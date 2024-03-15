@@ -7,25 +7,6 @@ if (!(isset($_SESSION['admin']))) {
     return;
 }
 
-if (isset($_POST) & !empty($_POST)) {
-    $name = ($_POST['name']);
-    $desc = ($_POST['desc']);
-    $type = ($_POST['type']);
-    $date = ($_POST['date']);
-    $time = ($_POST['time']);
-    $img = ($_POST['img']);
-
-    $query = "INSERT INTO `events` (name, description, type, time, date, image) 
-		VALUES ('$name', '$desc', '$type', '$time', '$date', '$img')";
-
-    $res = mysqli_query($dbc, $query);
-    if ($res) {
-        header('location: ../../admin/events.php');
-    } else {
-        $fmsg = "Failed to Insert data.";
-        print_r($res);
-    }
-}
 ?>
 
 
@@ -156,6 +137,18 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Time</label>
                     <input type="time" class="form-control" name="time" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Winner prize</label>
+                    <input type="number" class="form-control" name="winning" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Runner Up prize</label>
+                    <input type="number" class="form-control" name="runnerup" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Participation fee</label>
+                    <input type="text" class="form-control" name="participation" value="" />
                 </div>
                 <!-- <div class="form-group">
                     <label>Image </label>

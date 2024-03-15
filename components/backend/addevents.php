@@ -10,8 +10,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $type = mysqli_real_escape_string($dbc, $_POST['type']);
     $time = mysqli_real_escape_string($dbc, $_POST['time']);   
     $date = mysqli_real_escape_string($dbc, $_POST['date']);
+    $winning = mysqli_real_escape_string($dbc, $_POST['winning']);
+    $runnerup = mysqli_real_escape_string($dbc, $_POST['runnerup']);
+    $participation = mysqli_real_escape_string($dbc, $_POST['participation']);
 
-    $query1 = "INSERT INTO `main_events` (`eid`, `name`, `description`, `type`, `time`, `date`,`email`) VALUES (NULL, '$name', '$description', '$type', '$time', '$date','')";
+    $query1 = "INSERT INTO `main_events` (`eid`, `name`, `description`, `type`, `time`,`winner`,`runnerup`,`registrationfee`,`date`,`email`) VALUES (NULL, '$name', '$description', '$type', '$time', '$winning','$runnerup','$participation','$date','')";
 
     $exe = mysqli_query($dbc, $query1);
     if ($exe) {
