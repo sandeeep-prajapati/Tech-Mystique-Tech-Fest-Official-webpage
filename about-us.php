@@ -12,7 +12,7 @@ $conn=$dbc;
     <meta name="keywords" content="Manup, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Manup | Template</title>
+    <title>Parampara2024</title>
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
@@ -48,7 +48,7 @@ $conn=$dbc;
 
     <!-- Header Section Begin -->
     <?php
-    require 'usercomponents\mainnav.php';
+    require 'usercomponents/mainnav.php';
     ?>
     <!-- Header End -->
 
@@ -136,7 +136,7 @@ $conn=$dbc;
                 </div>
                 <div class="col-lg-6">
                     <div class="ha-pic">
-                        <img src="image/teachers/head.jpg" alt="">
+                        <img src="image/teachers/niveditamaam.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@ $conn=$dbc;
             <div class="row">
                 <div class="col-lg-6">
                     <div class="ha-pic">
-                        <img src="image/teachers/head.jpg" alt="">
+                        <img class="pt-4" src="image/teachers/vineetraisir.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -208,6 +208,45 @@ $conn=$dbc;
         </div>
     </section>
     <!-- Home About Section End -->
+
+    <!-- Utkarsh -->
+    <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="schedule-tab">
+                                        <div class="st-content">
+                                            <div class="container">
+                                                <h2 class="text-danger text-center p-4"><b>Organisation Committee head<b></h2>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="text-center" style="border-radius: 20px;">
+                                                            <img src="image\heads\utkarsh.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5">
+                                                        <div class="sc-text">
+                                                            <h4>Utkarsh Dubey</h4>
+                                                            <ul>
+                                                                <!-- <li><i class="fa fa-graduation-cap"></i> John Smith</li> -->
+                                                                <li><i class="fa fa-instagram">Utkarsh_dubey_0001</i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <ul class="sc-widget">
+                                                            <li><i class="fa fa-clock-o"></i> 09:00 am - 4:00 PM</li>
+                                                            <li><i class="fa fa-map-marker"></i> ITM GIDA, Gorakhpur
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+    <!--End Utkarsh -->
 
     <!-- Team Member Section Begin -->
     <section class="team-member-section">
@@ -363,113 +402,107 @@ $conn=$dbc;
 
     <!-- Pricing Section Begin -->
     <section class="pricing-section set-bg spad" data-setbg="home/img/pricing-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Parampara Events</h2>
-                        <p>Viewing Total Prozepool</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>Parampara Events</h2>
+                            <p>Viewing Total Prozepool</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-8">
+                        <div class="price-item">
+                            <h4>Culturalal Events</h4>
+                            <div class="pi-price">
+                                <h2><span>₹</span>97,200/-</h2>
+                            </div>
+                            <?php
+                            $query = "select name from main_events where type = 'Cultural' limit 10 offset 10";
+                            $res = mysqli_query($conn, $query);
+                            $row = mysqli_num_rows($res);
+                            if ($row > 0) {
+
+                            ?>
+                                <ul>
+                                    <?php
+                                    while ($row = mysqli_fetch_array($res)) {
+                                    ?>
+                                        <li><?php echo $row[0]; ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }
+                            ?>
+                            <a href="eventlist.php#cultural" class="price-btn">View All <span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-8">
+                        <div class="price-item top-rated">
+                            <div class="tr-tag">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <h4>Technical Events</h4>
+                            <div class="pi-price">
+                                <h2><span>₹</span>59,900/-</h2>
+                            </div>
+                            <?php
+                            $query = "select name from main_events where type = 'Technical' limit 10 offset 10";
+                            $res = mysqli_query($conn, $query);
+                            $row = mysqli_num_rows($res);
+                            if ($row > 0) {
+
+                            ?>
+                                <ul>
+                                    <?php
+                                    while ($row = mysqli_fetch_array($res)) {
+                                    ?>
+                                        <li><?php echo $row['name']; ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }
+                            ?>
+                            <a href="eventlist.php#technical" class="price-btn">View All <span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-8">
+                        <div class="price-item">
+                            <h4>Sport Events</h4>
+                            <div class="pi-price">
+                                <h2><span>₹</span>1,02,000/-</h2>
+                            </div>
+                            <?php
+                            $query = "select name from main_events where type = 'Sport' limit 10";
+                            $res = mysqli_query($conn, $query);
+                            $row = mysqli_num_rows($res);
+                            if ($row > 0) {
+
+                            ?>
+                                <ul>
+                                    <?php
+                                    while ($row = mysqli_fetch_array($res)) {
+                                    ?>
+                                        <li><?php echo $row[0]; ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }
+                            ?>
+                            <a href="eventlist.php#sport" class="price-btn">View All <span class="arrow_right"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8">
-                    <div class="price-item">
-                        <h4>Culturalal Events</h4>
-                        <div class="pi-price">
-                            <h2><span>₹</span>66600/-</h2>
-                        </div>
-                        <?php
-                            $query="select name from main_events where type = 'Cultural' limit 10 offset 10";
-                            $res=mysqli_query($conn,$query);
-                            $row=mysqli_num_rows($res);
-                            if($row>0)
-                            {
-                           
-                        ?>
-                        <ul>
-                        <?php
-                                while($row=mysqli_fetch_array($res))
-                                {
-                        ?>
-                            <li><?php echo $row[0]; ?></li>
-                        <?php
-                                }
-                        ?>
-                        </ul>
-                        <?php
-                            }
-                        ?>
-                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-8">
-                    <div class="price-item top-rated">
-                        <div class="tr-tag">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h4>Technical Events</h4>
-                        <div class="pi-price">
-                            <h2><span>₹</span>32600/-</h2>
-                        </div>
-                        <?php
-                            $query="select name from main_events where type = 'Technical' limit 10 offset 10";
-                            $res=mysqli_query($conn,$query);
-                            $row=mysqli_num_rows($res);
-                            if($row>0)
-                            {
-                           
-                        ?>
-                        <ul>
-                        <?php
-                                while($row=mysqli_fetch_array($res))
-                                {
-                        ?>
-                            <li><?php echo $row['name']; ?></li>
-                        <?php
-                                }
-                        ?>
-                        </ul>
-                        <?php
-                            }
-                        ?>
-                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-8">
-                    <div class="price-item">
-                        <h4>Sport Events</h4>
-                        <div class="pi-price">
-                            <h2><span>₹</span>96000/-</h2>
-                        </div>
-                        <?php
-                            $query="select name from main_events where type = 'Sport' limit 10";
-                            $res=mysqli_query($conn,$query);
-                            $row=mysqli_num_rows($res);
-                            if($row>0)
-                            {
-                           
-                        ?>
-                        <ul>
-                        <?php
-                                while($row=mysqli_fetch_array($res))
-                                {
-                        ?>
-                            <li><?php echo $row[0]; ?></li>
-                        <?php
-                                }
-                        ?>
-                        </ul>
-                        <?php
-                            }
-                        ?>
-                        <a href="#" class="price-btn">View All <span class="arrow_right"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Pricing Section End -->
+        </section>
+        <!-- Pricing Section End -->
 
     <!-- Testimonial Section Begin -->
     <section class="testimonial-section spad">
@@ -493,14 +526,14 @@ $conn=$dbc;
                                             <img src="home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="home/img/testimonial/testimonial-1.jpeg" alt="">
+                                            <img src="image/seniors/image1.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
-                                            <h5>Prakhar Deep</h5>
-                                            <span>Sport Participant</span>
+                                            <h5>Manushree Joshi</h5>
+                                            <span>Cultural and Dance Head</span>
                                         </div>
                                     </div>
-                                    <p>“First impression is made by logo or its absence. To know the importance of a logo just answer one question: How many big, leading and famous companies don’t have logos?”</p>
+                                    <p>“Being a cultural head as well as Dance Head for 2 years was the best experience of my life.Managing people , organizing events , working as a leader was not as easy as it's looks , it was not just me but a great teams that work soo effortlessly and smoothly to make each and every event successful. I'll always feel blessed to be a part of ITM family.”</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -510,14 +543,14 @@ $conn=$dbc;
                                             <img src="home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="home/img/testimonial/testimonial-2.jpeg" alt="">
+                                            <img src="image/seniors/image1.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
-                                            <h5>Suman Verma</h5>
-                                            <span>Cultural Participant</span>
+                                            <h5>Manushree Joshi</h5>
+                                            <span>Cultural and Dance Head</span>
                                         </div>
                                     </div>
-                                    <p>“There is no denying the fact that the success of an advertisement lies mostly in the headline. The headline should attract the reader and make him read the rest of the advertisement.”</p>
+                                    <p>“Being a cultural head as well as Dance Head for 2 years was the best experience of my life.Managing people , organizing events , working as a leader was not as easy as it's looks , it was not just me but a great teams that work soo effortlessly and smoothly to make each and every event successful. I'll always feel blessed to be a part of ITM family.”</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -527,16 +560,33 @@ $conn=$dbc;
                                             <img src="home/img/quote.png" alt="">
                                         </div>
                                         <div class="ta-pic">
-                                            <img src="home/img/testimonial/testimonial-2.jpg" alt="">
+                                            <img src="image/seniors/image1.jpg" alt="">
                                         </div>
                                         <div class="ta-text">
-                                            <h5>John Smith</h5>
-                                            <span>Speaker Manager</span>
+                                            <h5>Manushree Joshi</h5>
+                                            <span>Cultural and Dance Head</span>
                                         </div>
                                     </div>
-                                    <p>“There is no denying the fact that the success of an advertisement lies mostly in the headline. The headline should attract the reader and make him read the rest of the advertisement.”</p>
+                                    <p>“Being a cultural head as well as Dance Head for 2 years was the best experience of my life.Managing people , organizing events , working as a leader was not as easy as it's looks , it was not just me but a great teams that work soo effortlessly and smoothly to make each and every event successful. I'll always feel blessed to be a part of ITM family.”</p>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="testimonial-item">
+                                    <div class="ti-author">
+                                        <div class="quote-pic">
+                                            <img src="home/img/quote.png" alt="">
+                                        </div>
+                                        <div class="ta-pic">
+                                            <img src="image/seniors/image1.jpg" alt="">
+                                        </div>
+                                        <div class="ta-text">
+                                            <h5>Manushree Joshi</h5>
+                                            <span>Cultural and Dance Head</span>
+                                        </div>
+                                    </div>
+                                    <p>“Being a cultural head as well as Dance Head for 2 years was the best experience of my life.Managing people , organizing events , working as a leader was not as easy as it's looks , it was not just me but a great teams that work soo effortlessly and smoothly to make each and every event successful. I'll always feel blessed to be a part of ITM family.”</p>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -604,7 +654,7 @@ $conn=$dbc;
 
     <!-- Footer Section Begin -->
     <?php
-    require 'usercomponents\mainFooter.php';
+    require 'usercomponents/mainFooter.php';
     ?>
     <!-- Footer Section End -->
 

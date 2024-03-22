@@ -3,7 +3,7 @@ require '../../admin/connect.php';
 
 session_start();
 
-if (!(isset($_SESSION['admin']))) {
+if (!isset($_SESSION['admin'])) {
     echo "Unauthorized Access";
     return;
 }
@@ -14,24 +14,22 @@ $SelSql = "SELECT * FROM `users` WHERE uid=$id";
 $res = mysqli_query($dbc, $SelSql);
 $r = mysqli_fetch_assoc($res);
 
-
-if (isset($_POST) & !empty($_POST)) {
+if (isset($_POST) && !empty($_POST)) {
     $name = ($_POST['name']);
     $email = ($_POST['email']);
     $phone = ($_POST['phone']);
     $year = ($_POST['year']);
     $password = ($_POST['password']);
     $dept = ($_POST['dept']);
+    $eventname = ($_POST['eventname']); // Corrected typo here
 
-
-
-    $query = "UPDATE `users` SET name='$name', email='$email', phone='$phone', year='$year', password='$password', dept='$dept' WHERE uid='$id'";
+    $query = "UPDATE `users` SET `name` = '$name', `email` = '$email', `phone` = '$phone', `year` = '$year', `password` = '$password', `dept` = '$dept', `event_name` = '$eventname' WHERE `uid` = $id"; // Removed `uid` = NULL
 
     $res = mysqli_query($dbc, $query);
     if ($res) {
         header('location: ../../admin/user.php');
     } else {
-        $fmsg = "Failed to Insert data.";
+        $fmsg = "Failed to update data."; // Changed the error message to reflect updating instead of inserting
     }
 }
 ?>
@@ -162,6 +160,10 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Department </label>
                     <input type="text" class="form-control" name="dept" value="<?php echo $r['dept']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label>Event name </label>
+                    <input type="text" class="form-control" name="eventname" value="<?php echo $r['event_name']; ?>" />
                 </div>
                 <br><br>
                 <input type="submit" class="btn btn-primary" value="Update User" />

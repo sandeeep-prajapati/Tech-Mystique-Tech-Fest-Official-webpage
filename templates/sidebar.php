@@ -35,9 +35,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="suggestions.php">
+                    <a href="exparticipant.php">
                         <i class='bx bx-heart'></i>
-                        <span class="links_name">Feedback</span>
+                        <span class="links_name">Ex-Participant</span>
                     </a>
                 </li>
                 <li>

@@ -34,7 +34,7 @@
     <!-- Header Section Begin -->
     <?php
 
-    require 'usercomponents\mainnav.php';
+    require 'usercomponents/mainnav.php';
     ?>
     <!-- Header End -->
 

@@ -237,7 +237,7 @@
 
     <!-- Footer Section Begin -->
     <?php
-    require 'usercomponents\mainFooter.php';
+    require 'usercomponents/mainFooter.php';
 
     ?>
     <!-- Footer Section End -->

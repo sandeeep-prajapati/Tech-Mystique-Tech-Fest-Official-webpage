@@ -61,6 +61,7 @@ if (!isset($_SESSION['admin'])) {
                 <th scope="col">Phone No</th>
                 <th scope="col">year</th>
                 <th scope="col">department</th>
+                <th scope="col">Event name</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -75,6 +76,7 @@ if (!isset($_SESSION['admin'])) {
                 $phone = $row1['phone'];
                 $year = $row1['year'];
                 $dept = $row1['dept'];
+                $event_name = $row1['event_name'];
                 echo "
                                 <tr>
                                     <td>" . $p_id . "</td>
@@ -83,6 +85,7 @@ if (!isset($_SESSION['admin'])) {
                                     <td>" . $phone . "</td>
                                     <td>" . $year . "</td>
                                     <td>" . $dept . "</td>
+                                    <td>" . $event_name . "</td>
                                     <td>
 						                <a href='../components/user/update.php?id=$p_id'>
                                             <button type='button' class='btn btn-info'>Edit</button>

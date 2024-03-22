@@ -25,4 +25,6 @@ if ($stmt->execute()) {
 // Close the statement and database connection
 $stmt->close();
 $dbc->close();
+
+
 ?>

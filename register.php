@@ -1,13 +1,14 @@
 <?php
 session_start();
 require "admin/connect.php";
-if (!isset($_SESSION['admin'])) {
-    header('location: index.php');
-} 
+
 if (!empty($_POST)) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
+    $adharcard = $_POST['adharcard'];
+    $dob = $_POST['dob'];
+    $collegeName = $_POST['collegeName'];
 
     // Check if email already exists in the externalparticipants table
     $checkQuery = "SELECT COUNT(*) FROM externalparticipents WHERE email=?";
@@ -27,14 +28,15 @@ if (!empty($_POST)) {
     $token = md5(uniqid($email, true));
 
     // Prepare the SQL statement
-    $query = "INSERT INTO `externalparticipents` (`id`, `name`, `contact`, `email`, `token`) VALUES (NULL, ?, ?, ?, ?)";
+    $query = "INSERT INTO `externalparticipents` (`id`, `name`, `contact`, `email`, `token`,`adharcard`,`dob`,`collegeName`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
     
     // Initialize a prepared statement
     $stmt = mysqli_prepare($dbc, $query);
     $_SESSION['token'] = $token;
 
     // Bind parameters
-    mysqli_stmt_bind_param($stmt, 'ssss', $name, $mobile, $email, $token);
+    // mysqli_stmt_bind_param($stmt, 'ssss', $name, $mobile, $email, $token, $adharcard, $dob, $collegeName);
+    mysqli_stmt_bind_param($stmt, 'sssssss', $name, $mobile, $email, $token, $adharcard, $dob, $collegeName);
     
     // Execute the statement
     $res = mysqli_stmt_execute($stmt);
@@ -67,7 +69,7 @@ else {
 </head>
 <body>
     <?php
-    require 'usercomponents\mainnav.php';
+    require 'usercomponents/mainnav.php';
     ?>
 <div class="container">
     <div class="row">
@@ -78,6 +80,12 @@ else {
                 <p class="text-danger">insert your all credentials correctly and take a screenshot of your generated token</p>
                 <label for="Enter your name">Enter your name</label>
                 <input type="text" class="form-control" name="name" placeholder="" required>
+                <label for="Enter your name">Enter your Adhar Card nunber</label>
+                <input type="number" class="form-control" name="adharcard" placeholder="" required>
+                <label for="Enter your name">Enter your date of birth</label>
+                <input type="date" class="form-control" name="dob" placeholder="" required>
+                <label for="Enter your name">Enter your college name</label>
+                <input type="text" class="form-control" name="collegeName" placeholder="" required>
                 <label for="Enter your email">Enter your email</label>
                 <input type="email" class="form-control" name="email" placeholder="" required>
                 <label for="Enter your mobile number">Mobile Number</label>
@@ -91,7 +99,7 @@ else {
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <?php
-    require 'usercomponents\mainFooter.php';
+    require 'usercomponents/mainFooter.php';
 
     ?>
 </body>

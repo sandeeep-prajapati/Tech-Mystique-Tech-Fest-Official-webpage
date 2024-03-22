@@ -15,9 +15,10 @@ if (isset($_POST) & !empty($_POST)) {
     $year = ($_POST['year']);
     $password = ($_POST['password']);
     $dept = ($_POST['dept']);
+    $event_name = ($_POST['event_name']);
 
-    $query = "INSERT INTO `users` (name, email, phone, year, password, dept) 
-		VALUES ('$name', '$email', '$phone', '$year', '$password', '$dept')";
+    $query = "INSERT INTO `users` (name, email, phone, year, password, dept, event_name) 
+		VALUES ('$name', '$email', '$phone', '$year', '$password', '$dept', '$event_name')";
 
     $res = mysqli_query($dbc, $query);
     if ($res) {
@@ -156,6 +157,10 @@ if (isset($_POST) & !empty($_POST)) {
                 <div class="form-group">
                     <label>Department </label>
                     <input type="text" class="form-control" name="dept" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Enter your event name </label>
+                    <input type="text" class="form-control" name="event_name" value="" />
                 </div>
                 <br><br>
                 <input type="submit" class="btn btn-primary" value="Add User" />
